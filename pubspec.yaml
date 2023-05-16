@@ -85,6 +85,13 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/font/Pretendard-Regular.otf
+          weight: 400
+          #크기는 어떻게 미리설정하지?
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
