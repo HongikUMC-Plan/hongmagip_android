@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
-import 'package:hongmagip_android/screens/randomview.dart';
-import 'package:hongmagip_android/screens/subview/etcList.dart';
-import 'package:hongmagip_android/screens/subview/snackList.dart';
-import 'package:hongmagip_android/screens/subview/fastList.dart';
-import 'package:hongmagip_android/screens/subview/asianList.dart';
-import 'package:hongmagip_android/screens/subview/westernList.dart';
-import 'package:hongmagip_android/screens/subview/japaneseList.dart';
-import 'package:hongmagip_android/screens/subview/chineseList.dart';
-import 'package:hongmagip_android/screens/subview/koreanList.dart';
 
-
-class ViewScreen extends StatefulWidget {
-  ViewScreen({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({ Key? key }) : super(key: key);
 
   @override
-  State<ViewScreen> createState() => _ViewScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _ViewScreenState extends State<ViewScreen> {
-  bool isViewScreen = true;
-
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +28,7 @@ class _ViewScreenState extends State<ViewScreen> {
             child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 10,crossAxisSpacing: 10),children: [
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -52,7 +40,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChineseList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -64,7 +52,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -76,7 +64,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -87,9 +75,9 @@ class _ViewScreenState extends State<ViewScreen> {
                 ),
               ),
               InkWell(
-                // onTap: (){
-                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
-                // },
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +88,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AsianList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -112,7 +100,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -124,7 +112,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SnackList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -136,7 +124,7 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
@@ -151,62 +139,64 @@ class _ViewScreenState extends State<ViewScreen> {
             ),
           ),
           ),
-            Padding(
-          padding: const EdgeInsets.only(bottom: 100),
-          child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Spacer(flex: 2,),
-                  ElevatedButton(
-                    onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (BuildContext context) {
-                          return SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.9,
-                              child: Center(
-                                child: Column(
-                                    children: <Widget> [
-                                      SizedBox(
-                                        height: 300
-                                      ),
-                                      Text('식당 랜덤 선택'),
-                                      TextButton(onPressed: (){},
-                                          child: Text('랜덤'))
-                                    ],
-                                ),
-                              ),
-                          );
-                        },
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(50, 50),
-                        shape: const CircleBorder(),
-                        foregroundColor: Palette.buttonIconColor,
-                        backgroundColor: Palette.buttonColor
-                    ),
-                    child: Icon(Icons.sentiment_satisfied),
-                  ),
-                  Spacer(flex: 1,),
-                  ElevatedButton(
-                    onPressed: () {
-                      // instagram url
-                    },
-                    style: ElevatedButton.styleFrom(
+          Padding(
+            padding: const EdgeInsets.only(bottom: 100),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Spacer(flex: 2,),
+                ElevatedButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Column(
+                          children: <Widget> [
+                            SizedBox(
+                            height: 500,
+                            child: Center(
+                              child: Text('식당 랜덤 선택'),
+                            ),
+                          ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: TextButton(
+                                  onPressed: (){
+
+                                  },
+                                child: Text("TEXT BUTTON"),),
+                            )
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
                       fixedSize: const Size(50, 50),
                       shape: const CircleBorder(),
                       foregroundColor: Palette.buttonIconColor,
-                      backgroundColor: Palette.buttonColor,
-                    ),
-                    child: Icon(Icons.account_box),
+                      backgroundColor: Palette.buttonColor
                   ),
-                  Spacer(flex: 2,),
-                ],
-              ),
+                  child: Icon(Icons.sentiment_satisfied),
+                ),
+                Spacer(flex: 1,),
+                ElevatedButton(
+                  onPressed: () {
+                    // instagram url
+                  },
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(50, 50),
+                    shape: const CircleBorder(),
+                    foregroundColor: Palette.buttonIconColor,
+                    backgroundColor: Palette.buttonColor,
+                  ),
+                  child: Icon(Icons.account_box),
+                ),
+                Spacer(flex: 2,),
+              ],
             ),
+          ),
         ],
       ),
     );
