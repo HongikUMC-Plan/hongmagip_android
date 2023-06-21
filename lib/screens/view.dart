@@ -9,7 +9,7 @@ import 'package:hongmagip_android/screens/subview/westernList.dart';
 import 'package:hongmagip_android/screens/subview/japaneseList.dart';
 import 'package:hongmagip_android/screens/subview/chineseList.dart';
 import 'package:hongmagip_android/screens/subview/koreanList.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class ViewScreen extends StatefulWidget {
   ViewScreen({Key? key}) : super(key: key);
@@ -35,9 +35,10 @@ class _ViewScreenState extends State<ViewScreen> {
       ),
       body: Column(
         children: [
-          Flexible(child: Padding(
+          Flexible(
+            child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 10,crossAxisSpacing: 10),children: [
+            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),children: [
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
@@ -45,8 +46,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("한식",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("한식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -57,8 +58,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("중식",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("중식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -69,8 +70,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("일식",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("일식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -81,8 +82,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("양식",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("양식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -93,9 +94,10 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("홍맛",style: TextStyle(color: Colors.blue,fontSize: 30),)
-                    ],),
+                    children: const [
+                      Image(image: AssetImage('assets/image/로고2.png'),)
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -105,8 +107,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("아시안",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("아시안",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -117,8 +119,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("패푸",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("패푸",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -129,8 +131,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("분식",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("분식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -141,8 +143,8 @@ class _ViewScreenState extends State<ViewScreen> {
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("기타",style: TextStyle(color: Colors.white,fontSize: 30),)
+                    children: const [
+                      Text("기타",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
                     ],
                   ),
                 ),
@@ -185,23 +187,26 @@ class _ViewScreenState extends State<ViewScreen> {
                     style: ElevatedButton.styleFrom(
                         fixedSize: const Size(50, 50),
                         shape: const CircleBorder(),
-                        foregroundColor: Palette.buttonIconColor,
-                        backgroundColor: Palette.buttonColor
+                        // foregroundColor: Palette.buttonIconColor,
+                        // backgroundColor: Palette.buttonColor
                     ),
                     child: Icon(Icons.sentiment_satisfied),
                   ),
                   Spacer(flex: 1,),
                   ElevatedButton(
                     onPressed: () {
-                      // instagram url
+                      launchUrl(
+                          Uri.parse(
+                              'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
+                          ),
+                      ); // instagram url
                     },
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(50, 50),
                       shape: const CircleBorder(),
-                      foregroundColor: Palette.buttonIconColor,
-                      backgroundColor: Palette.buttonColor,
                     ),
-                    child: Icon(Icons.account_box),
+                    child: Image(image: AssetImage('assets/image/인스타그램.png'),
+                    ),
                   ),
                   Spacer(flex: 2,),
                 ],

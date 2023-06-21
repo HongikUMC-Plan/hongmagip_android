@@ -46,19 +46,19 @@ class _KoreanListState extends State<KoreanList> {
           Text(type[0], style: TextStyle(color: Colors.black, fontSize: 30),),
           Flexible(child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 10,crossAxisSpacing: 10),children: [
+            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),children: [
               InkWell(
                 // onTap: (){
-                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>PopupScreen()));
+                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>detailPage()));
                 // },
                 onTap: (){
-                  showRandomRestaurantModal(context);
+                  showDetailPage(context);
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[0],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[0],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -70,7 +70,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[1],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[1],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -82,7 +82,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[2],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[2],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -94,7 +94,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[3],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[3],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -106,7 +106,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[4],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[4],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -118,7 +118,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[5],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[5],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -130,7 +130,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[6],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[6],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -142,7 +142,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[7],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[7],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],),
                 ),
               ),
@@ -154,7 +154,7 @@ class _KoreanListState extends State<KoreanList> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(koreanRestaurant[8],style: TextStyle(color: Colors.white,fontSize: 30),)
+                      Text(koreanRestaurant[8],style: TextStyle(color: Colors.white,fontSize: 24),)
                     ],
                   ),
                 ),

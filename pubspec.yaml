@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:
@@ -59,9 +60,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/image/logo1.svg
+    - assets/image/logo2.svg
+    - assets/image/로고2.png
+    - assets/image/인스타그램.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -88,9 +91,17 @@ flutter:
   fonts:
     - family: Pretendard
       fonts:
+        - asset: assets/font/Pretendard-ExtraBold.otf
+          weight: 700
+        - asset: assets/font/Pretendard-Bold.otf
+          weight: 700
+        - asset: assets/font/Pretendard-Semibold.otf
+          weight: 500
+        - asset: assets/font/Pretendard-Medium.otf
+          weight: 500
         - asset: assets/font/Pretendard-Regular.otf
           weight: 400
-          #크기는 어떻게 미리설정하지?
+  # fontSize 32, 24, 20, 18, 16
 
   #
   # For details regarding fonts from package dependencies,

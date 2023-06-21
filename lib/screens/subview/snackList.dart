@@ -40,7 +40,7 @@ class _SnackListState extends State<SnackList> {
           Text('분식', style: TextStyle(color: Colors.black, fontSize: 30),),
           Flexible(child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 10,crossAxisSpacing: 10),children: [
+            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),children: [
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SnackList()));
