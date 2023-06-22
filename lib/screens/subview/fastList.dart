@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import '../../config/restaurantTypes.dart';
+import '../../config/restaurants.dart';
 import '../view.dart';
+import 'detailview/detailPage.dart';
 
 class FastList extends StatefulWidget {
   const FastList({ Key? key }) : super(key: key);
@@ -9,17 +12,8 @@ class FastList extends StatefulWidget {
   _FastListState createState() => _FastListState();
 }
 
-final List<String> restaurantList = [
-  '스매쉬보이',
-  '식스티즈',
-  '서브웨이',
-  '테이스티버거',
-  '버거스올마이티',
-  '맘스터치',
-  '버거킹',
-  '더 피자 보이즈',
-  '에그드랍'
-];
+final String type = restaurantType[5];
+final restaurantList = fastRestaurant;
 
 class _FastListState extends State<FastList> {
 
@@ -42,7 +36,7 @@ class _FastListState extends State<FastList> {
               child: Container()
           ),
           Flexible(
-              child: Text('패스트푸드', style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
+              child: Text(type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
           Flexible(
             flex: 7,
             child: Padding(
@@ -52,7 +46,7 @@ class _FastListState extends State<FastList> {
                 children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[0], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -64,7 +58,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[1], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -76,7 +70,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[2], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -88,7 +82,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[3], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -100,7 +94,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[4], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -112,7 +106,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[5], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -124,7 +118,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[6], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -136,7 +130,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[7], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(
@@ -148,7 +142,7 @@ class _FastListState extends State<FastList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
+                      showDetailPage(context, restaurantList[8], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                       child: Column(

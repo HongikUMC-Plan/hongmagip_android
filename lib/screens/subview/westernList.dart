@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import '../../config/restaurantTypes.dart';
+import '../../config/restaurants.dart';
 import '../view.dart';
+import 'detailview/detailPage.dart';
 
 class WesternList extends StatefulWidget {
   const WesternList({ Key? key }) : super(key: key);
@@ -9,17 +12,8 @@ class WesternList extends StatefulWidget {
   _WesternListState createState() => _WesternListState();
 }
 
-final List<String> restaurantList = [
-  '아티장 깔조네',
-  '필동함박',
-  '바리',
-  '봉대박파스타',
-  '롤링파스타',
-  '진짜파스타',
-  '이양권반상',
-  '윤씨밀방',
-  '비스트로주라'
-];
+final String type = restaurantType[3];
+final restaurantList = westernRestaurant;
 
 class _WesternListState extends State<WesternList> {
 
@@ -52,7 +46,7 @@ class _WesternListState extends State<WesternList> {
                 children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[0], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -64,7 +58,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[1], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -76,7 +70,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[2], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -88,7 +82,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[3], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -100,7 +94,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[4], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -112,7 +106,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[5], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -124,7 +118,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[6], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -136,7 +130,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[7], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -148,7 +142,7 @@ class _WesternListState extends State<WesternList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
+                      showDetailPage(context, restaurantList[8], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(

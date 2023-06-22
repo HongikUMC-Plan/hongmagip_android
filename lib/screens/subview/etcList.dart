@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import '../../config/restaurantTypes.dart';
+import '../../config/restaurants.dart';
 import '../view.dart';
+import 'detailview/detailPage.dart';
 
 class EtcList extends StatefulWidget {
   const EtcList({ Key? key }) : super(key: key);
@@ -9,17 +12,8 @@ class EtcList extends StatefulWidget {
   _EtcListState createState() => _EtcListState();
 }
 
-final List<String> restaurantList = [
-  '더그리니치',
-  '샌디 빌리지',
-  '구스토타코',
-  '도시락집 미미',
-  '긴자료코',
-  '상수 냉장고',
-  '무쇠김치삼겹살',
-  '넙딱집',
-  '등촌'
-];
+final String type = restaurantType[7];
+final restaurantList = etcRestaurant;
 
 class _EtcListState extends State<EtcList> {
 
@@ -52,7 +46,7 @@ class _EtcListState extends State<EtcList> {
                 children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[0], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -64,7 +58,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[1], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -76,7 +70,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[2], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -88,7 +82,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[3], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -100,7 +94,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[4], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -112,7 +106,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[5], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -124,7 +118,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[6], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -136,7 +130,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[7], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -148,7 +142,7 @@ class _EtcListState extends State<EtcList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
+                      showDetailPage(context, restaurantList[8], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(

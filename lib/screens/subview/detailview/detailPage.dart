@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../koreanList.dart';
+import '../chineseList.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _DetailPageState extends State<DetailPage> {
   }
 }
 
-void showDetailPage(BuildContext context) {
+void showDetailPage(BuildContext context, String restaurant, String type) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -32,7 +33,7 @@ void showDetailPage(BuildContext context) {
                   // 식당이름 및 분류 text row
                   children: [
                     Text(
-                      restaurantList[0],
+                      restaurant,
                       style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Pretendard',
@@ -46,7 +47,7 @@ void showDetailPage(BuildContext context) {
                     Padding(
                       padding: EdgeInsets.only(top: 8),
                       child: Text(
-                        type[0],
+                        type,
                         style: TextStyle(
                             fontFamily: 'Pretendard',
                             fontWeight: FontWeight.w600,

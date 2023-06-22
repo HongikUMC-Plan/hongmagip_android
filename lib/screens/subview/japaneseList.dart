@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import '../../config/restaurantTypes.dart';
+import '../../config/restaurants.dart';
 import '../view.dart';
+import 'detailview/detailPage.dart';
 
 class JapaneseList extends StatefulWidget {
   const JapaneseList({ Key? key }) : super(key: key);
@@ -9,17 +12,8 @@ class JapaneseList extends StatefulWidget {
   _JapaneseListState createState() => _JapaneseListState();
 }
 
-final List<String> restaurantList = [
-  '소코아',
-  '카미야',
-  '겐로쿠우동',
-  '칸다소바',
-  '유익상스시',
-  '카츠업',
-  '히메시야',
-  '멘타카무쇼',
-  '라멘트럭'
-];
+final restaurantList = japaneseRestaurant;
+final String type = restaurantType[2];
 
 class _JapaneseListState extends State<JapaneseList> {
 
@@ -42,7 +36,7 @@ class _JapaneseListState extends State<JapaneseList> {
               child: Container()
           ),
           Flexible(
-              child: Text('일식', style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
+              child: Text(type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
           Flexible(
             flex: 7,
             child: Padding(
@@ -52,7 +46,7 @@ class _JapaneseListState extends State<JapaneseList> {
                 children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[0], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -64,7 +58,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[1], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -76,7 +70,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[2], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -88,7 +82,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[3], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -100,7 +94,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[4], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -112,7 +106,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[5], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -124,7 +118,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[6], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -136,7 +130,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[7], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(
@@ -148,7 +142,7 @@ class _JapaneseListState extends State<JapaneseList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
+                      showDetailPage(context, restaurantList[8], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                       child: Column(

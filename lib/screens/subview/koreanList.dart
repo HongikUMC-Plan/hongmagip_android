@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import 'package:hongmagip_android/config/restaurants.dart';
+import 'package:hongmagip_android/config/restaurantTypes.dart';
 import '../view.dart';
-import '../popupview.dart';
 import 'detailview/detailPage.dart';
 
 class KoreanList extends StatefulWidget {
@@ -11,21 +12,8 @@ class KoreanList extends StatefulWidget {
   _KoreanListState createState() => _KoreanListState();
 }
 
-final List<String> type = [
-  '한식'
-];
-
-final List<String> restaurantList = [
-  '집밥김치찌개',
-  '한석화',
-  '국시와 가래떡',
-  '율촌',
-  '제순식당',
-  '발바리네',
-  '금복식당',
-  '후계동',
-  '다락투'
-];
+final String type = restaurantType[0];
+final List<String> restaurantList = koreanRestaurant;
 
 class _KoreanListState extends State<KoreanList> {
 
@@ -48,7 +36,7 @@ class _KoreanListState extends State<KoreanList> {
               child: Container()
           ),
           Flexible(
-              child: Text('한식', style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
+              child: Text(type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
           Flexible(
             flex: 7,
             child: Padding(
@@ -58,7 +46,7 @@ class _KoreanListState extends State<KoreanList> {
                 children: [
                   InkWell(
                     onTap: (){
-                      showDetailPage(context);
+                      showDetailPage(context, restaurantList[0], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -70,7 +58,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[1], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -82,7 +70,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[2], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -94,7 +82,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[3], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -106,7 +94,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[4], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -118,7 +106,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[5], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -130,7 +118,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[6], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -142,7 +130,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[7], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
@@ -154,7 +142,7 @@ class _KoreanListState extends State<KoreanList> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+                      showDetailPage(context, restaurantList[8], type);
                     },
                     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                       child: Column(
