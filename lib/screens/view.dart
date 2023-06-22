@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
-import 'package:hongmagip_android/screens/randomview.dart';
 import 'package:hongmagip_android/screens/subview/etcList.dart';
 import 'package:hongmagip_android/screens/subview/snackList.dart';
 import 'package:hongmagip_android/screens/subview/fastList.dart';
@@ -10,6 +9,8 @@ import 'package:hongmagip_android/screens/subview/japaneseList.dart';
 import 'package:hongmagip_android/screens/subview/chineseList.dart';
 import 'package:hongmagip_android/screens/subview/koreanList.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:hongmagip_android/ad_helper.dart';
+
 
 class ViewScreen extends StatefulWidget {
   ViewScreen({Key? key}) : super(key: key);
@@ -20,6 +21,28 @@ class ViewScreen extends StatefulWidget {
 
 class _ViewScreenState extends State<ViewScreen> {
   bool isViewScreen = true;
+  // BannerAd? _bannerAd;
+  //
+  // @override
+  // void initState(){
+  //   super.initState();
+  //   BannerAd(
+  //     adUnitId: AdHelper.bannerAdUnitId,
+  //     request: AdRequest(),
+  //     size: AdSize.banner,
+  //     listener: BannerAdListener(
+  //       onAdLoaded: (ad) {
+  //         setState(() {
+  //           _bannerAd = ad as BannerAd;
+  //         });
+  //       },
+  //       onAdFailedToLoad: (ad, err) {
+  //         print('Failed to load a banner ad: ${err.message}');
+  //         ad.dispose();
+  //       },
+  //     ),
+  //   ).load();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -161,66 +184,85 @@ class _ViewScreenState extends State<ViewScreen> {
           ),
           ),
             Flexible(
-              flex: 3,
-              child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Spacer(flex: 2,),
-                      ElevatedButton(
-                        onPressed: () {
-                          showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (BuildContext context) {
-                              return SizedBox(
-                                  height: MediaQuery.of(context).size.height * 0.9,
-                                  child: Center(
-                                    child: Column(
-                                        children: <Widget> [
-                                          SizedBox(
-                                            height: 300
-                                          ),
-                                          Text('식당 랜덤 선택'),
-                                          TextButton(onPressed: (){},
-                                              child: Text('랜덤'))
-                                        ],
+            flex: 3,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Spacer(flex: 2,),
+                    InkWell(
+                      onTap: (){
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) {
+                            return SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.9,
+                              child: Center(
+                                child: Column(
+                                  children: <Widget> [
+                                    SizedBox(
+                                        height: 300
                                     ),
-                                  ),
-                              );
-                            },
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(50, 50),
-                            shape: const CircleBorder(),
-                            // foregroundColor: Palette.buttonIconColor,
-                            // backgroundColor: Palette.buttonColor
-                        ),
-                        child: Icon(Icons.sentiment_satisfied),
-                      ),
-                      Spacer(flex: 1,),
-                      ElevatedButton(
-                        onPressed: () {
-                          launchUrl(
-                              Uri.parse(
-                                  'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
+                                    Text('식당 랜덤 선택'),
+                                    TextButton(onPressed: (){},
+                                        child: Text('랜덤'))
+                                  ],
+                                ),
                               ),
-                          ); // instagram url
-                        },
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(50, 50),
-                          shape: const CircleBorder(),
-                        ),
-                        child: Image(image: AssetImage('assets/image/인스타그램.png'),
-                        ),
+                            );
+                          },
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'assets/image/랜덤.png',
+                        width: 50,
+                        height: 50,
                       ),
-                      Spacer(flex: 2,),
-                    ],
-                  ),
+                    ),
+                    Spacer(flex: 1,),
+                    InkWell(
+                      onTap: (){
+                        launchUrl(
+                          Uri.parse(
+                              'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
+                          ),
+                        ); // instagram url
+                      },
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'assets/image/인스타그램.png',
+                        width: 50,
+                        height: 50,
+                      ),
+                    ),
+                    Spacer(flex: 2,),
+                  ],
+                ),
+                // if (_bannerAd != null)
+                //   Align(
+                //     alignment: Alignment.bottomCenter,
+                //     child: SizedBox(
+                //       width: _bannerAd!.size.width.toDouble(),
+                //       height: _bannerAd!.size.height.toDouble(),
+                //       child: AdWidget(ad: _bannerAd!),
+                //     ),
+                //   ),
+                ],
+              ),
             ),
         ],
       ),
     );
   }
 }
+//   @override
+//   void dispose() {
+//     // TODO: Dispose a BannerAd object
+//     _bannerAd?.dispose();
+//     super.dispose();
+//   }
+// }

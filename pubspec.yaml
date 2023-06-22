@@ -64,6 +64,8 @@ flutter:
     - assets/image/로고2.png
     - assets/image/인스타그램.png
     - assets/image/로고힌.png
+    - assets/image/뒤로가기.png
+    - assets/image/랜덤.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
