@@ -27,14 +27,7 @@ class RandomView {
 
 String main() {
   List<List<String>> restaurantLists = [
-    koreanRestaurant,
-    chineseRestaurant,
-    japaneseRestaurant,
-    westernRestaurant,
-    asianRestaurant,
-    fastRestaurant,
-    snackRestaurant,
-    etcRestaurant
+
   ];
 
   List<String> mergedList = RandomView.mergeRestaurantLists(restaurantLists);

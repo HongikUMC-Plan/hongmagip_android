@@ -26,7 +26,7 @@ class _ViewScreenState extends State<ViewScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(180.0),
+        preferredSize: Size.fromHeight(0),
         child: AppBar(
           title: Text(''),
           backgroundColor: Colors.white,
@@ -36,18 +36,25 @@ class _ViewScreenState extends State<ViewScreen> {
       body: Column(
         children: [
           Flexible(
+            flex: 3,
+              child: Container()
+          ),
+          Flexible(
+            flex: 7,
             child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),children: [
+            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),
+              physics: NeverScrollableScrollPhysics(),
+              children: [
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("한식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("한식",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -55,11 +62,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ChineseList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("중식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("중식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -67,11 +74,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("일식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("일식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -79,11 +86,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("양식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("양식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -95,7 +102,7 @@ class _ViewScreenState extends State<ViewScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Image(image: AssetImage('assets/image/로고2.png'),)
+                      Image(image: AssetImage('assets/image/로고힌.png'),)
                     ],
                   ),
                 ),
@@ -104,11 +111,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>AsianList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("아시안",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("아시안",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -116,11 +123,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("패푸",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("패푸",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -128,11 +135,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SnackList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("분식",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("분식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],),
                 ),
               ),
@@ -140,11 +147,11 @@ class _ViewScreenState extends State<ViewScreen> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue,),
+                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("기타",style: TextStyle(color: Colors.white,fontFamily: 'Pretendard',fontWeight: FontWeight.w700,fontSize: 32),)
+                      Text("기타",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
                     ],
                   ),
                 ),
@@ -153,64 +160,64 @@ class _ViewScreenState extends State<ViewScreen> {
             ),
           ),
           ),
-            Padding(
-          padding: const EdgeInsets.only(bottom: 100),
-          child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Spacer(flex: 2,),
-                  ElevatedButton(
-                    onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (BuildContext context) {
-                          return SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.9,
-                              child: Center(
-                                child: Column(
-                                    children: <Widget> [
-                                      SizedBox(
-                                        height: 300
-                                      ),
-                                      Text('식당 랜덤 선택'),
-                                      TextButton(onPressed: (){},
-                                          child: Text('랜덤'))
-                                    ],
-                                ),
-                              ),
+            Flexible(
+              flex: 3,
+              child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Spacer(flex: 2,),
+                      ElevatedButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (BuildContext context) {
+                              return SizedBox(
+                                  height: MediaQuery.of(context).size.height * 0.9,
+                                  child: Center(
+                                    child: Column(
+                                        children: <Widget> [
+                                          SizedBox(
+                                            height: 300
+                                          ),
+                                          Text('식당 랜덤 선택'),
+                                          TextButton(onPressed: (){},
+                                              child: Text('랜덤'))
+                                        ],
+                                    ),
+                                  ),
+                              );
+                            },
                           );
                         },
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(50, 50),
-                        shape: const CircleBorder(),
-                        // foregroundColor: Palette.buttonIconColor,
-                        // backgroundColor: Palette.buttonColor
-                    ),
-                    child: Icon(Icons.sentiment_satisfied),
+                        style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(50, 50),
+                            shape: const CircleBorder(),
+                            // foregroundColor: Palette.buttonIconColor,
+                            // backgroundColor: Palette.buttonColor
+                        ),
+                        child: Icon(Icons.sentiment_satisfied),
+                      ),
+                      Spacer(flex: 1,),
+                      ElevatedButton(
+                        onPressed: () {
+                          launchUrl(
+                              Uri.parse(
+                                  'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
+                              ),
+                          ); // instagram url
+                        },
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(50, 50),
+                          shape: const CircleBorder(),
+                        ),
+                        child: Image(image: AssetImage('assets/image/인스타그램.png'),
+                        ),
+                      ),
+                      Spacer(flex: 2,),
+                    ],
                   ),
-                  Spacer(flex: 1,),
-                  ElevatedButton(
-                    onPressed: () {
-                      launchUrl(
-                          Uri.parse(
-                              'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
-                          ),
-                      ); // instagram url
-                    },
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(50, 50),
-                      shape: const CircleBorder(),
-                    ),
-                    child: Image(image: AssetImage('assets/image/인스타그램.png'),
-                    ),
-                  ),
-                  Spacer(flex: 2,),
-                ],
-              ),
             ),
         ],
       ),

@@ -84,22 +84,22 @@ class _SubViewScreenState extends State<SubViewScreen> {
                               ),
                             ),
                           ),
-                          Positioned(
-                            width: 200,
-                            height: 10,
-                            child: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  isSelected = !isSelected;
-                                });
-                              },
-                              color: Palette.LikedColor,
-                              icon: Icon(
-                                isSelected ? Icons.favorite
-                                    : Icons.favorite_border,
-                              ),
-                            ),
-                          ),
+                          // Positioned(
+                          //   width: 200,
+                          //   height: 10,
+                          //   child: IconButton(
+                          //     onPressed: () {
+                          //       setState(() {
+                          //         isSelected = !isSelected;
+                          //       });
+                          //     },
+                          //     color: Palette.LikedColor,
+                          //     icon: Icon(
+                          //       isSelected ? Icons.favorite
+                          //           : Icons.favorite_border,
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     );

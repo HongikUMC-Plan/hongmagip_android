@@ -32,7 +32,7 @@ void showDetailPage(BuildContext context) {
                   // 식당이름 및 분류 text row
                   children: [
                     Text(
-                      koreanRestaurant[0],
+                      restaurantList[0],
                       style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Pretendard',
