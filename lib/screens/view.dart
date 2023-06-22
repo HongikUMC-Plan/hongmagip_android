@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import 'package:hongmagip_android/screens/random.dart';
 import 'package:hongmagip_android/screens/subview/etcList.dart';
 import 'package:hongmagip_android/screens/subview/snackList.dart';
 import 'package:hongmagip_android/screens/subview/fastList.dart';
@@ -9,7 +10,6 @@ import 'package:hongmagip_android/screens/subview/japaneseList.dart';
 import 'package:hongmagip_android/screens/subview/chineseList.dart';
 import 'package:hongmagip_android/screens/subview/koreanList.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:hongmagip_android/ad_helper.dart';
 
 
 class ViewScreen extends StatefulWidget {
@@ -21,28 +21,15 @@ class ViewScreen extends StatefulWidget {
 
 class _ViewScreenState extends State<ViewScreen> {
   bool isViewScreen = true;
-  // BannerAd? _bannerAd;
-  //
-  // @override
-  // void initState(){
-  //   super.initState();
-  //   BannerAd(
-  //     adUnitId: AdHelper.bannerAdUnitId,
-  //     request: AdRequest(),
-  //     size: AdSize.banner,
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (ad) {
-  //         setState(() {
-  //           _bannerAd = ad as BannerAd;
-  //         });
-  //       },
-  //       onAdFailedToLoad: (ad, err) {
-  //         print('Failed to load a banner ad: ${err.message}');
-  //         ad.dispose();
-  //       },
-  //     ),
-  //   ).load();
-  // }
+  String randomRestaurant = '';
+  late StateSetter stateSetter;
+
+  void updateRandomRestaurant(){
+    setState(() {
+      randomRestaurant = chooseRandomRestaurant();
+      stateSetter(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -204,11 +191,67 @@ class _ViewScreenState extends State<ViewScreen> {
                                 child: Column(
                                   children: <Widget> [
                                     SizedBox(
-                                        height: 300
+                                      height: 100,
                                     ),
-                                    Text('식당 랜덤 선택'),
-                                    TextButton(onPressed: (){},
-                                        child: Text('랜덤'))
+                                    Text(
+                                      '랜덤선택',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Pretendard',
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 32,
+                                          letterSpacing: -2),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                                      child: SizedBox(
+                                        height: 100,
+                                        child: InkWell(
+                                          child: SizedBox(
+                                            child: TextButton(
+                                              onPressed: (){
+                                                // showDetailPage(context, restaurant, type)
+                                              },
+                                              child: StatefulBuilder(
+                                                builder: (BuildContext context, StateSetter setState){
+                                                  stateSetter = setState;
+                                                  return Text(
+                                                    randomRestaurant,
+                                                    style: TextStyle(
+                                                      fontFamily: 'Pretendard',
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 24,
+                                                      letterSpacing: -2
+                                                    ),
+                                                  );
+                                                }
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Image.asset(
+                                        'assets/image/dice.gif',
+                                        width: 150,
+                                        height: 150,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 32),
+                                      child: ElevatedButton(
+                                        onPressed: updateRandomRestaurant,
+                                        child: Text(
+                                          '랜덤 돌리기',
+                                          style: TextStyle(
+                                              fontFamily: 'Pretendard',
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 16,
+                                              letterSpacing: -1.5),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -259,10 +302,3 @@ class _ViewScreenState extends State<ViewScreen> {
     );
   }
 }
-//   @override
-//   void dispose() {
-//     // TODO: Dispose a BannerAd object
-//     _bannerAd?.dispose();
-//     super.dispose();
-//   }
-// }
