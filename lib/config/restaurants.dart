@@ -1,5 +1,5 @@
 // 각 분류의 type 값을 받아와서 해당하는 restaurant list를 반환
-List<String> findRestaurantType(String type) {
+List<String> findRestaurantList(String type) {
   switch (type) {
     case '한식':
       return koreanRestaurant;
@@ -41,6 +41,29 @@ int findRestaurantIndex(String type) {
     return 7;
   } else {
     return 8;
+  }
+}
+
+
+String findRestaurantType(String restaurant) {
+  if (koreanRestaurant.contains(restaurant)) {
+    return '한식';
+  } else if (chineseRestaurant.contains(restaurant)) {
+    return '중식';
+  } else if (japaneseRestaurant.contains(restaurant)) {
+    return '일식';
+  } else if (westernRestaurant.contains(restaurant)) {
+    return '양식';
+  } else if (asianRestaurant.contains(restaurant)) {
+    return '아시안';
+  } else if (fastRestaurant.contains(restaurant)) {
+    return '패푸';
+  } else if (snackRestaurant.contains(restaurant)) {
+    return '분식';
+  } else if (etcRestaurant.contains(restaurant)) {
+    return '기타';
+  } else {
+    return '-';
   }
 }
 

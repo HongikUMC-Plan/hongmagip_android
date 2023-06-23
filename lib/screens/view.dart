@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
+import 'package:hongmagip_android/config/restaurants.dart';
 import 'package:hongmagip_android/screens/random.dart';
+import 'package:hongmagip_android/screens/subview/detailview/detailPage.dart';
 import 'package:hongmagip_android/screens/subview/etcList.dart';
 import 'package:hongmagip_android/screens/subview/snackList.dart';
 import 'package:hongmagip_android/screens/subview/fastList.dart';
@@ -22,12 +24,20 @@ class ViewScreen extends StatefulWidget {
 class _ViewScreenState extends State<ViewScreen> {
   bool isViewScreen = true;
   String randomRestaurant = '';
+  String type = '';
   late StateSetter stateSetter;
 
   void updateRandomRestaurant(){
     setState(() {
       randomRestaurant = chooseRandomRestaurant();
+      type = findRestaurantType(randomRestaurant);
       stateSetter(() {});
+    });
+  }
+  void resetRandomRestaurant() {
+    setState(() {
+      randomRestaurant = '';
+      type = '';
     });
   }
 
@@ -181,6 +191,7 @@ class _ViewScreenState extends State<ViewScreen> {
                     Spacer(flex: 2,),
                     InkWell(
                       onTap: (){
+                        resetRandomRestaurant();
                         showModalBottomSheet(
                           context: context,
                           isScrollControlled: true,
@@ -208,24 +219,28 @@ class _ViewScreenState extends State<ViewScreen> {
                                         height: 100,
                                         child: InkWell(
                                           child: SizedBox(
-                                            child: TextButton(
-                                              onPressed: (){
-                                                // showDetailPage(context, restaurant, type)
-                                              },
-                                              child: StatefulBuilder(
-                                                builder: (BuildContext context, StateSetter setState){
-                                                  stateSetter = setState;
-                                                  return Text(
-                                                    randomRestaurant,
-                                                    style: TextStyle(
-                                                      fontFamily: 'Pretendard',
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 24,
-                                                      letterSpacing: -2
-                                                    ),
-                                                  );
-                                                }
-                                              ),
+                                            child: StatefulBuilder(
+                                              builder: (BuildContext context, StateSetter setState) {
+                                                return TextButton(
+                                                  onPressed: (){
+                                                    showDetailPage(context, randomRestaurant, type);
+                                                  },
+                                                  child: StatefulBuilder(
+                                                    builder: (BuildContext context, StateSetter setState){
+                                                      stateSetter = setState;
+                                                      return Text(
+                                                        randomRestaurant,
+                                                        style: TextStyle(
+                                                          fontFamily: 'Pretendard',
+                                                          fontWeight: FontWeight.w500,
+                                                          fontSize: 24,
+                                                          letterSpacing: -2
+                                                        ),
+                                                      );
+                                                    }
+                                                  ),
+                                                );
+                                              }
                                             ),
                                           ),
                                         ),
@@ -273,7 +288,7 @@ class _ViewScreenState extends State<ViewScreen> {
                           Uri.parse(
                               'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
                           ),
-                        ); // instagram url
+                        );// instagram url
                       },
                       borderRadius: BorderRadius.circular(50),
                       child: Image.asset(
