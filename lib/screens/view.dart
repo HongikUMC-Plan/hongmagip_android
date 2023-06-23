@@ -122,7 +122,7 @@ class _ViewScreenState extends State<ViewScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Image(image: AssetImage('assets/image/로고힌.png'),)
+                      Image(image: AssetImage('assets/image/로고.png'),)
                     ],
                   ),
                 ),

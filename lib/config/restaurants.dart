@@ -1,43 +1,43 @@
 // 각 분류의 type 값을 받아와서 해당하는 restaurant list를 반환
-List<String> findRestaurantList(String type) {
-  switch (type) {
-    case '한식':
-      return koreanRestaurant;
-    case '중식':
-      return chineseRestaurant;
-    case '일식':
-      return japaneseRestaurant;
-    case '양식':
-      return westernRestaurant;
-    case '아시안':
-      return asianRestaurant;
-    case '패푸':
-      return fastRestaurant;
-    case '분식':
-      return snackRestaurant;
-    case '기타':
-      return etcRestaurant;
-    default:
-      return [];
-  }
-}
+// List<String> findRestaurantList(String type) {
+//   switch (type) {
+//     case '한식':
+//       return koreanRestaurant;
+//     case '중식':
+//       return chineseRestaurant;
+//     case '일식':
+//       return japaneseRestaurant;
+//     case '양식':
+//       return westernRestaurant;
+//     case '아시안':
+//       return asianRestaurant;
+//     case '패푸':
+//       return fastRestaurant;
+//     case '분식':
+//       return snackRestaurant;
+//     case '기타':
+//       return etcRestaurant;
+//     default:
+//       return [];
+//   }
+// }
 
-int findRestaurantIndex(String type) {
-  if (koreanRestaurant.contains(type)) {
+int findRestaurantIndex(String restaurant) {
+  if (koreanRestaurant.contains(restaurant)) {
     return 0;
-  } else if (chineseRestaurant.contains(type)) {
+  } else if (chineseRestaurant.contains(restaurant)) {
     return 1;
-  } else if (japaneseRestaurant.contains(type)) {
+  } else if (japaneseRestaurant.contains(restaurant)) {
     return 2;
-  } else if (westernRestaurant.contains(type)) {
+  } else if (westernRestaurant.contains(restaurant)) {
     return 3;
-  } else if (asianRestaurant.contains(type)) {
+  } else if (asianRestaurant.contains(restaurant)) {
     return 4;
-  } else if (fastRestaurant.contains(type)) {
+  } else if (fastRestaurant.contains(restaurant)) {
     return 5;
-  } else if (snackRestaurant.contains(type)) {
+  } else if (snackRestaurant.contains(restaurant)) {
     return 6;
-  } else if (etcRestaurant.contains(type)) {
+  } else if (etcRestaurant.contains(restaurant)) {
     return 7;
   } else {
     return 8;
@@ -69,9 +69,9 @@ String findRestaurantType(String restaurant) {
 
 // 한식
 final List<String> koreanRestaurant = [
-  '집밥김치찌개',
+  '집밥\n김치찌개',
   '한석화',
-  '국시와 가래떡',
+  '국시와\n가래떡',
   '율촌',
   '제순식당',
   '발바리네',

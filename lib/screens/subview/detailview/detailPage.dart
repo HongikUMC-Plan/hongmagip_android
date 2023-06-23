@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../koreanList.dart';
-import '../chineseList.dart';
+
+import '../../../config/maplinks.dart';
+import '../../../config/palette.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -17,6 +18,10 @@ class _DetailPageState extends State<DetailPage> {
 }
 
 void showDetailPage(BuildContext context, String restaurant, String type) {
+  matchKakaoLink(type);
+  List<String> linkList = matchKakaoLink(type);
+  // getKakaoLink(linkList); -> 맵링크하는 부분 막히던 중
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -62,7 +67,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                   height: 20,
                 ),
                 Padding(
-                  // 지도 button 두 개 row
+                  // kakao, naver 지도 button row
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 22),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -79,15 +84,18 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                               right: Radius.circular(20),
                             ),
                           ),
+                          backgroundColor: Palette.kakao,
                         ),
-                        child: Icon(Icons.pin_drop), // kakao map icon으로 수정필요
+                        child: Image.asset(
+                            'assets/image/kakao.png',
+                        ),
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          // kakao map url
+                          // naver map url
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(60, 25),
@@ -97,8 +105,11 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                               right: Radius.circular(20),
                             ),
                           ),
+                          backgroundColor: Palette.naver,
                         ),
-                        child: Icon(Icons.pin_drop), // naver map icon으로 수정필요
+                        child: Image.asset(
+                          'assets/image/naver.png',
+                        ),
                       ),
                     ],
                   ),

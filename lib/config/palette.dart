@@ -8,4 +8,6 @@ class Palette{
   static const Color blue1 = Color(0xFF91B5D9);
   static const Color blue2 = Color(0xFF7E98CD);
   static const Color blue3 = Color(0xFF5E7EC1);
+  static const Color kakao = Color(0xFFFAE200);
+  static const Color naver = Color(0xFF002675);
 }

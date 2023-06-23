@@ -164,20 +164,19 @@ class _SnackListState extends State<SnackList> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Spacer(flex: 1,),
-                ElevatedButton(
-                  onPressed: () {
+                InkWell(
+                  onTap: (){
                     Navigator.pop(
                       context, MaterialPageRoute(
                         builder: (context) => ViewScreen()),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(50, 50),
-                    shape: const CircleBorder(),
-                    foregroundColor: Palette.buttonIconColor,
-                    backgroundColor: Palette.buttonColor,
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.asset(
+                    'assets/image/뒤로가기.png',
+                    width: 50,
+                    height: 50,
                   ),
-                  child: Icon(Icons.keyboard_return),
                 ),
                 Spacer(flex: 1,),
               ],
