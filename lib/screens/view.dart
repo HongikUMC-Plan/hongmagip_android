@@ -288,7 +288,7 @@ class _ViewScreenState extends State<ViewScreen> {
                           Uri.parse(
                               'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
                           ),
-                        );// instagram url
+                        ); // instagram url
                       },
                       borderRadius: BorderRadius.circular(50),
                       child: Image.asset(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/maplinks.dart';
 import '../../../config/palette.dart';
@@ -19,8 +20,9 @@ class _DetailPageState extends State<DetailPage> {
 
 void showDetailPage(BuildContext context, String restaurant, String type) {
   matchKakaoLink(type);
-  List<String> linkList = matchKakaoLink(type);
-  // getKakaoLink(linkList); -> 맵링크하는 부분 막히던 중
+  List<String> kakaolinkList = matchKakaoLink(type);
+  List<String> naverlinkList = matchNaverLink(type);
+  int index = giverestaurantIndex(restaurant);
 
   showModalBottomSheet(
     context: context,
@@ -74,7 +76,11 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // kakao map url
+                          launchUrl(
+                            Uri.parse(
+                                kakaolinkList[index],
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(60, 25),
@@ -95,7 +101,11 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          // naver map url
+                          launchUrl(
+                            Uri.parse(
+                              naverlinkList[index],
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(60, 25),

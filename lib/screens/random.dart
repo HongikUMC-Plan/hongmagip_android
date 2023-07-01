@@ -1,6 +1,4 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
-
 import '../config/restaurants.dart';
 
 String chooseRandomRestaurant() {

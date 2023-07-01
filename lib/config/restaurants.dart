@@ -69,9 +69,9 @@ String findRestaurantType(String restaurant) {
 
 // 한식
 final List<String> koreanRestaurant = [
-  '집밥\n김치찌개',
+  '집밥김치찌개',
   '한석화',
-  '국시와\n가래떡',
+  '국시와 가래떡',
   '율촌',
   '제순식당',
   '발바리네',
@@ -106,9 +106,9 @@ final List<String> japaneseRestaurant = [
 // 양식
 final List<String> westernRestaurant = [
   '아티장 깔조네',
-  '필동함박',
+  '남산호랭이',
   '바리',
-  '봉대박파스타',
+  '봉대박스타게티',
   '롤링파스타',
   '진짜파스타',
   '이양권반상',
@@ -118,7 +118,7 @@ final List<String> westernRestaurant = [
 // 아시안
 final List<String> asianRestaurant = [
   '포보',
-  '꼬이',
+  '탄탄면공방',
   '미분당',
   '더 키친 아시아 인도',
   '델리인디아',
@@ -131,11 +131,11 @@ final List<String> asianRestaurant = [
 final List<String> fastRestaurant = [
   '스매쉬보이',
   '식스티즈',
-  '서브웨이',
+  '써브웨이',
   '테이스티버거',
-  '버거스올마이티',
+  '대한수제버거',
   '맘스터치',
-  '버거킹',
+  '북문당',
   '더 피자 보이즈',
   '에그드랍'
 ];
@@ -159,7 +159,7 @@ final List<String> etcRestaurant = [
   '도시락집 미미',
   '긴자료코',
   '상수 냉장고',
-  '무쇠김치삼겹살',
+  '무쇠김치삼겹',
   '넙딱집',
   '등촌'
 ];

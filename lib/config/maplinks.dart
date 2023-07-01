@@ -11,6 +11,28 @@
 
 import 'package:hongmagip_android/config/restaurants.dart';
 
+int giverestaurantIndex(String restaurant){
+  int index = 0;
+  List<String> mergedList = [...koreanRestaurant,
+    ...chineseRestaurant,
+    ...japaneseRestaurant,
+    ...westernRestaurant,
+    ...asianRestaurant,
+    ...fastRestaurant,
+    ...snackRestaurant,
+    ...etcRestaurant,];
+
+  for (int i = 0; i < mergedList.length; i++) {
+    // 1부터 9까지의 인덱스를 순차적으로 부여하기 위해 (i % 9)을 사용
+    index = i % 9;
+
+    if (mergedList[i] == restaurant) {
+      break;
+    }
+  }
+  return index;
+}
+
 List<String> matchKakaoLink(String type){
   switch (type) {
     case '한식':
@@ -34,10 +56,28 @@ List<String> matchKakaoLink(String type){
   }
 }
 
-// String getKakaoLink(List<String> linkList){
-//
-// }
-
+List<String> matchNaverLink(String type){
+  switch (type) {
+    case '한식':
+      return naverKoreanList;
+    case '중식':
+      return naverChineseList;
+    case '일식':
+      return naverJapaneseList;
+    case '양식':
+      return naverWesternList;
+    case '아시안':
+      return naverAsianList;
+    case '패푸':
+      return naverFastList;
+    case '분식':
+      return naverSnackList;
+    case '기타':
+      return naverAsianList;
+    default:
+      return [];
+  }
+}
 
 // kakao map link lists
 final List<String> kakaoKoreanList = [
@@ -138,97 +178,97 @@ final List<String> kakaoEtcList = [
 
 // naver map link lists
 final List <String> naverKoreanList = [
-  'https://naver.me/G7yZnRj3',
-  'https://naver.me/GLKw0xKS',
-  'https://naver.me/GFp6dQrf',
-  'https://naver.me/xTeG4fub',
-  'https://naver.me/Fa3Sf9u2',
-  'https://naver.me/IFjFAnPq',
-  'https://naver.me/Gi9sddAD',
-  'https://naver.me/GrSqA7zz',
-  'https://naver.me/FArQ0N71',
+  'https://m.place.naver.com/restaurant/1352674026',
+  'https://m.place.naver.com/restaurant/1017344816',
+  'https://m.place.naver.com/restaurant/38274964',
+  'https://m.place.naver.com/restaurant/38252282',
+  'https://m.place.naver.com/restaurant/1299875051',
+  'https://m.place.naver.com/restaurant/38275469',
+  'https://m.place.naver.com/restaurant/1224693248',
+  'https://m.place.naver.com/restaurant/1893956178',
+  'https://m.place.naver.com/restaurant/31202900'
 ];
 
 final List <String> naverChineseList = [
-  'https://naver.me/xdIkBfe0',
-  'https://naver.me/5xlj37Q2',
-  'https://naver.me/5Aq4fm0H',
-  'https://naver.me/GulKaGh7',
-  'https://naver.me/GWFrxjxt',
-  'https://naver.me/xuCo4a5K',
-  'https://naver.me/G6iwP4Rn',
-  'https://naver.me/G1IftBzu',
-  'https://naver.me/5L3o0RIT',
+  'https://m.place.naver.com/restaurant/1732949952',
+  'https://m.place.naver.com/restaurant/1270213408',
+  'https://m.place.naver.com/restaurant/1289446008',
+  'https://m.place.naver.com/restaurant/1181997169',
+  'https://m.place.naver.com/restaurant/1889129222',
+  'https://m.place.naver.com/restaurant/1777629862',
+  'https://m.place.naver.com/restaurant/1811586372',
+  'https://m.place.naver.com/restaurant/1919141423',
+  'https://m.place.naver.com/restaurant/36504830'
 ];
 
 final List <String> naverJapaneseList = [
-  'https://naver.me/G99stgXV',
-  'https://naver.me/FpXMPQnn',
-  'https://naver.me/xTeS3hZo',
-  'https://naver.me/FNmlmEOE',
-  'https://naver.me/xorKaKsH',
-  'https://naver.me/IMpSqxJy',
-  'https://naver.me/Goz554bk',
-  'https://naver.me/5zJo6mlA',
-  'https://naver.me/GfaMoA49',
+  'https://m.place.naver.com/restaurant/1414076813',
+  'https://m.place.naver.com/restaurant/19535343',
+  'https://m.place.naver.com/restaurant/13475125',
+  'https://m.place.naver.com/restaurant/1736095566',
+  'https://m.place.naver.com/restaurant/1453555886',
+  'https://m.place.naver.com/restaurant/1157398737',
+  'https://m.place.naver.com/restaurant/33626741',
+  'https://m.place.naver.com/restaurant/1080330680',
+  'https://m.place.naver.com/restaurant/36097869'
 ];
 
 final List <String> naverWesternList = [
-  'https://naver.me/5012okWF',
-  'https://naver.me/GrSbXApA',
-  'https://naver.me/xFptjoT3',
-  'https://naver.me/5rsMJ2rE',
-  'https://naver.me/GKovMpo5',
-  'https://naver.me/xhHnAQnZ',
-  'https://naver.me/xgaIMeEu',
-  'https://naver.me/5MUCs2hm',
-  'https://naver.me/xrP6Wq73',
+  'https://m.place.naver.com/restaurant/1210273017',
+  'https://m.place.naver.com/restaurant/1726349203',
+  'https://m.place.naver.com/restaurant/1440010652',
+  'https://m.place.naver.com/restaurant/1452827703',
+  'https://m.place.naver.com/restaurant/1561438151',
+  'https://m.place.naver.com/restaurant/154970292',
+  'https://m.place.naver.com/restaurant/1752228333',
+  'https://m.place.naver.com/restaurant/13341197',
+  'https://m.place.naver.com/restaurant/364996702'
 ];
 
 final List <String> naverAsianList = [
-  'https://naver.me/GXEAmQpC',
-  'https://naver.me/GAi635xC',
-  'https://naver.me/GsTOukcc',
-  'https://naver.me/FwnAibqF',
-  'https://naver.me/Fk5dbzJm',
-  'https://naver.me/GAi6krWy',
-  'https://naver.me/GEAu92kC',
-  'https://naver.me/Gw5ErJ2R',
-  'https://naver.me/Go5154qZ',
+  'https://m.place.naver.com/restaurant/31093198',
+  'https://m.place.naver.com/restaurant/37450208',
+  'https://m.place.naver.com/restaurant/70086019',
+  'https://m.place.naver.com/restaurant/1363039498',
+  'https://m.place.naver.com/restaurant/37420517',
+  'https://m.place.naver.com/restaurant/11866833',
+  'https://m.place.naver.com/restaurant/36195963',
+  'https://m.place.naver.com/restaurant/1155830773',
+  'https://m.place.naver.com/restaurant/1769874750'
 ];
 
-final List <String> fastKoreanList = [
-  'https://naver.me/5fnjJdjC',
-  'https://naver.me/5aVtf9Q3',
-  'https://naver.me/xkxbRLKX',
-  'https://naver.me/xv0Lj0iy',
-  'https://naver.me/xuCAVk8y',
-  'https://naver.me/F0Kww608',
-  'https://naver.me/F1IrRPKx',
-  'https://naver.me/GeW5O3FW',
-  'https://naver.me/FIgoWp1s',
+final List <String> naverFastList = [
+  'https://m.place.naver.com/restaurant/1514089345',
+  'https://m.place.naver.com/restaurant/1853322194',
+  'https://m.place.naver.com/restaurant/38705494',
+  'https://m.place.naver.com/restaurant/1935683021',
+  'https://m.place.naver.com/restaurant/1413052443',
+  'https://m.place.naver.com/restaurant/37572950',
+  'https://m.place.naver.com/restaurant/1134739376',
+  'https://m.place.naver.com/restaurant/37624477',
+  'https://m.place.naver.com/restaurant/1448176164'
 ];
 
 final List <String> naverSnackList = [
-  'https://naver.me/FjoACQRW',
-  'https://naver.me/GEALmHaf',
-  'https://naver.me/xRQPPk6X',
-  'https://naver.me/Fjo7Pq8a',
-  'https://naver.me/5tjeOb7E',
-  'https://naver.me/5aVvOv9s',
-  'https://naver.me/IG6cR415',
-  'https://naver.me/GEAI3qGb',
-  'https://naver.me/5jY81Wgg',
+  'https://m.place.naver.com/restaurant/1068496177',
+  'https://m.place.naver.com/restaurant/1923547109',
+  'https://m.place.naver.com/restaurant/11856660',
+  'https://m.place.naver.com/restaurant/1363994074',
+  'https://m.place.naver.com/restaurant/32481151',
+  'https://m.place.naver.com/restaurant/36680775',
+  'https://m.place.naver.com/restaurant/1504309232',
+  'https://m.place.naver.com/restaurant/32812047',
+  'https://m.place.naver.com/restaurant/1847343692'
 ];
 
 final List <String> naverEtcList = [
-  'https://naver.me/GNyPrWIa',
-  'https://naver.me/GHDYP3p6',
-  'https://naver.me/52lhlK0O',
-  'https://naver.me/xdIkifHt',
-  'https://naver.me/5Tv3XLvW',
-  'https://naver.me/GbEcCupJ',
-  'https://naver.me/FhAdCwEM',
-  'https://naver.me/FuVE56G5',
-  'https://naver.me/GbEcPRYr',
+  'https://m.place.naver.com/restaurant/1087552980',
+  'https://m.place.naver.com/restaurant/1005475707',
+  'https://m.place.naver.com/restaurant/33237660',
+  'https://m.place.naver.com/restaurant/37485940',
+  'https://m.place.naver.com/restaurant/793535986',
+  'https://m.place.naver.com/restaurant/1791240561',
+  'https://m.place.naver.com/restaurant/1609583532',
+  'https://m.place.naver.com/restaurant/1818653919',
+  'https://m.place.naver.com/restaurant/32050464'
 ];
