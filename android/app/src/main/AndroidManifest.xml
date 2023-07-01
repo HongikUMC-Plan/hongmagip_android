@@ -8,7 +8,7 @@
    </queries>
 
    <application
-        android:label="hongmagip_android"
+        android:label="홍익대무묵지"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
