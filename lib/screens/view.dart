@@ -21,6 +21,28 @@ class ViewScreen extends StatefulWidget {
   State<ViewScreen> createState() => _ViewScreenState();
 }
 
+// 카테고리 목록
+final List<CategoryInfo> categories = [
+  CategoryInfo('한식', Palette.blue1, KoreanList()),
+  CategoryInfo('중식', Palette.blue2, ChineseList()),
+  CategoryInfo('일식', Palette.blue3, JapaneseList()),
+  CategoryInfo('양식', Palette.blue3, WesternList()),
+  CategoryInfo('로고', Palette.blue3, WesternList()),
+  CategoryInfo('아시안', Palette.blue1, AsianList()),
+  CategoryInfo('패푸', Palette.blue2, FastList()),
+  CategoryInfo('분식', Palette.blue1, SnackList()),
+  CategoryInfo('기타', Palette.blue3, EtcList()),
+];
+
+// 각 카테고리 정보를 담는 클래스
+class CategoryInfo {
+  final String name;
+  final Color color;
+  final Widget route;
+
+  CategoryInfo(this.name, this.color, this.route);
+}
+
 class _ViewScreenState extends State<ViewScreen> {
   bool isViewScreen = true;
   String randomRestaurant = '';
@@ -61,123 +83,45 @@ class _ViewScreenState extends State<ViewScreen> {
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.6,
             child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>KoreanList()));
+              padding: const EdgeInsets.all(10.0),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 6,
+                  crossAxisSpacing: 6,
+                ),
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => categories[index].route));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: categories[index].color,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          index == 4 // 로고 아이콘
+                              ? Image(image: AssetImage('assets/image/로고.png'))
+                              : Text(
+                            categories[index].name,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 32,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("한식",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
               ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ChineseList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("중식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>JapaneseList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("일식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>WesternList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("양식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                // onTap: (){
-                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
-                // },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Image(image: AssetImage('assets/image/로고.png'),)
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AsianList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("아시안",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FastList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue2,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("패푸",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SnackList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("분식",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>EtcList()));
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue3,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("기타",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,fontSize: 32),)
-                    ],
-                  ),
-                ),
-              ),
-            ],
             ),
-          ),
           ),
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.1,
