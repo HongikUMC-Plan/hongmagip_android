@@ -9,5 +9,7 @@ class Palette{
   static const Color blue2 = Color(0xFF7E98CD);
   static const Color blue3 = Color(0xFF5E7EC1);
   static const Color kakao = Color(0xFFFEE500);
-  static const Color naver = Color(0xFF002675);
+  // static const Color naver = Color(0xFF002675);
+  static const Color naver = Color(0xFFFFFFFF);
+
 }

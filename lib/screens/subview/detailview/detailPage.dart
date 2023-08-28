@@ -91,10 +91,19 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                               right: Radius.circular(20),
                             ),
                           ),
+                          padding: EdgeInsets.zero,
                           backgroundColor: Palette.kakao,
                         ),
-                        child: Image.asset(
-                            'assets/image/kakao.png',
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/image/kakao.png',
+                              width: 30,
+                              height: 30,
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(
@@ -116,10 +125,19 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                               right: Radius.circular(20),
                             ),
                           ),
+                          padding: EdgeInsets.zero,
                           backgroundColor: Palette.naver,
                         ),
-                        child: Image.asset(
-                          'assets/image/naver.png',
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/image/naver.png',
+                              width: 30,
+                              height: 30,
+                            ),
+                          ],
                         ),
                       ),
                     ],
