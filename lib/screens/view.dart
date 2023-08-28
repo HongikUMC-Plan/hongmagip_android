@@ -55,12 +55,11 @@ class _ViewScreenState extends State<ViewScreen> {
       ),
       body: Column(
         children: [
-          Flexible(
-            flex: 3,
-              child: Container()
+          SizedBox(
+            height: (MediaQuery.of(context).size.height) * 0.2,
           ),
-          Flexible(
-            flex: 7,
+          SizedBox(
+            height: (MediaQuery.of(context).size.height) * 0.6,
             child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),
@@ -180,8 +179,8 @@ class _ViewScreenState extends State<ViewScreen> {
             ),
           ),
           ),
-            Flexible(
-            flex: 3,
+          SizedBox(
+            height: (MediaQuery.of(context).size.height) * 0.1,
             child: Column(
               children: [
                 Row(

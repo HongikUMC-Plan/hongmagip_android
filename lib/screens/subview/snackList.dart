@@ -31,14 +31,14 @@ class _SnackListState extends State<SnackList> {
       ),
       body: Column(
         children: [
-          Flexible(
-              flex: 2,
-              child: Container()
+          SizedBox(
+              height: (MediaQuery.of(context).size.height) * 0.1,
           ),
-          Flexible(
+          SizedBox(
+              height: (MediaQuery.of(context).size.height) * 0.1,
               child: Text(type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
-          Flexible(
-            flex: 7,
+          SizedBox(
+            height: (MediaQuery.of(context).size.height) * 0.6,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),
