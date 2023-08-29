@@ -1,38 +1,3 @@
-
-// 식당이름, 분류를 받아온다.
-// -> 분류에 따른 식당 리스트에서 식당 이름의 인덱스를 찾는다.
-// -> 인덱스에 해당하는 링크
-// 인덱스, 분류를 받아온다.
-// -> 분류에 따른 링크리스트를 매치한다.
-// -> 인덱스에 해당하는 링크리스트의 값(링크)을 반환한다.
-
-// String kakaoLink = getKakaoLink(restaurant, type);
-// String naverLink = getNaverLink(restaurant, type);
-
-import 'package:hongmagip_android/config/restaurants.dart';
-
-int giverestaurantIndex(String restaurant){
-  int index = 0;
-  List<String> mergedList = [...koreanRestaurant,
-    ...chineseRestaurant,
-    ...japaneseRestaurant,
-    ...westernRestaurant,
-    ...asianRestaurant,
-    ...fastRestaurant,
-    ...snackRestaurant,
-    ...etcRestaurant,];
-
-  for (int i = 0; i < mergedList.length; i++) {
-    // 1부터 9까지의 인덱스를 순차적으로 부여하기 위해 (i % 9)을 사용
-    index = i % 9;
-
-    if (mergedList[i] == restaurant) {
-      break;
-    }
-  }
-  return index;
-}
-
 List<String> matchKakaoLink(String type){
   switch (type) {
     case '한식':

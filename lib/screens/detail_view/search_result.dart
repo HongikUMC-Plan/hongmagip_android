@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../config/blogsearch.dart';
+import '../../utilities/blogsearch.dart';
 
-class SearchResultPage extends StatelessWidget {
+class SearchResult extends StatelessWidget {
   final String searchKeyword;
 
-  SearchResultPage({super.key, required this.searchKeyword});
+  SearchResult({super.key, required this.searchKeyword});
 
   @override
   Widget build(BuildContext context) {

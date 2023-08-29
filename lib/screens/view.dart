@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hongmagip_android/config/palette.dart';
-import 'package:hongmagip_android/config/restaurants.dart';
-import 'package:hongmagip_android/screens/random.dart';
-import 'package:hongmagip_android/screens/subview.dart';
-import 'package:hongmagip_android/screens/subview/detailview/detailPage.dart';
-// import 'package:hongmagip_android/screens/subview/etcList.dart';
-// import 'package:hongmagip_android/screens/subview/snackList.dart';
-// import 'package:hongmagip_android/screens/subview/fastList.dart';
-// import 'package:hongmagip_android/screens/subview/asianList.dart';
-// import 'package:hongmagip_android/screens/subview/westernList.dart';
-// import 'package:hongmagip_android/screens/subview/japaneseList.dart';
-// import 'package:hongmagip_android/screens/subview/chineseList.dart';
-// import 'package:hongmagip_android/screens/subview/koreanList.dart';
+import 'package:hongmagip_android/models/restaurants.dart';
+import 'package:hongmagip_android/utilities/random.dart';
+import 'package:hongmagip_android/screens/detail_view/detail_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../config/restaurantTypes.dart';
-
+import '../models/category.dart';
 
 class ViewScreen extends StatefulWidget {
   ViewScreen({Key? key}) : super(key: key);
@@ -24,73 +13,6 @@ class ViewScreen extends StatefulWidget {
   State<ViewScreen> createState() => _ViewScreenState();
 }
 
-// 카테고리 목록
-// final List<CategoryInfo> categories = [
-//   CategoryInfo('일식', Palette.blue3, JapaneseList()),
-//   CategoryInfo('양식', Palette.blue3, WesternList()),
-//   CategoryInfo('로고', Palette.blue3, WesternList()),
-//   CategoryInfo('아시안', Palette.blue1, AsianList()),
-//   CategoryInfo('패푸', Palette.blue2, FastList()),
-//   CategoryInfo('분식', Palette.blue1, SnackList()),
-//   CategoryInfo('기타', Palette.blue3, EtcList()),
-// ];
-final List<CategoryInfo> categories = [
-  CategoryInfo('한식', Palette.blue1, SubView(
-    type: restaurantType[0],
-    restaurantList: koreanRestaurant,
-    containerColor: Palette.blue1,
-  )),
-  CategoryInfo('중식', Palette.blue2, SubView(
-    type: restaurantType[1],
-    restaurantList: chineseRestaurant,
-    containerColor: Palette.blue2,
-  )),
-  CategoryInfo('일식', Palette.blue3, SubView(
-    type: restaurantType[2],
-    restaurantList: japaneseRestaurant,
-    containerColor: Palette.blue3,
-  )),
-  CategoryInfo('양식', Palette.blue3, SubView(
-    type: restaurantType[3],
-    restaurantList: westernRestaurant,
-    containerColor: Palette.blue3,
-  )),
-  CategoryInfo('로고', Palette.blue3, SubView(
-    type: restaurantType[3],
-    restaurantList: westernRestaurant,
-    containerColor: Palette.blue3,
-  )),
-  CategoryInfo('아시안', Palette.blue1, SubView(
-    type: restaurantType[4],
-    restaurantList: asianRestaurant,
-    containerColor: Palette.blue1,
-  )),
-  CategoryInfo('패푸', Palette.blue2, SubView(
-    type: restaurantType[5],
-    restaurantList: asianRestaurant,
-    containerColor: Palette.blue2,
-  )),
-  CategoryInfo('분식', Palette.blue1, SubView(
-    type: restaurantType[6],
-    restaurantList: asianRestaurant,
-    containerColor: Palette.blue1,
-  )),
-  CategoryInfo('기타', Palette.blue3, SubView(
-    type: restaurantType[7],
-    restaurantList: westernRestaurant,
-    containerColor: Palette.blue3,
-  )),
-];
-
-
-// 각 카테고리 정보를 담는 클래스
-class CategoryInfo {
-  final String name;
-  final Color color;
-  final Widget route;
-
-  CategoryInfo(this.name, this.color, this.route);
-}
 
 class _ViewScreenState extends State<ViewScreen> {
   bool isViewScreen = true;
@@ -290,18 +212,9 @@ class _ViewScreenState extends State<ViewScreen> {
                     Spacer(flex: 2,),
                   ],
                 ),
-                // if (_bannerAd != null)
-                //   Align(
-                //     alignment: Alignment.bottomCenter,
-                //     child: SizedBox(
-                //       width: _bannerAd!.size.width.toDouble(),
-                //       height: _bannerAd!.size.height.toDouble(),
-                //       child: AdWidget(ad: _bannerAd!),
-                //     ),
-                //   ),
-                ],
-              ),
+              ],
             ),
+          ),
         ],
       ),
     );

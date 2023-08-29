@@ -1,26 +1,14 @@
-// 각 분류의 type 값을 받아와서 해당하는 restaurant list를 반환
-// List<String> findRestaurantList(String type) {
-//   switch (type) {
-//     case '한식':
-//       return koreanRestaurant;
-//     case '중식':
-//       return chineseRestaurant;
-//     case '일식':
-//       return japaneseRestaurant;
-//     case '양식':
-//       return westernRestaurant;
-//     case '아시안':
-//       return asianRestaurant;
-//     case '패푸':
-//       return fastRestaurant;
-//     case '분식':
-//       return snackRestaurant;
-//     case '기타':
-//       return etcRestaurant;
-//     default:
-//       return [];
-//   }
-// }
+final List<String> restaurantType = [
+  '한식',
+  '중식',
+  '일식',
+  '양식',
+  '아시안',
+  '패푸',
+  '분식',
+  '기타',
+];
+
 
 int findRestaurantIndex(String restaurant) {
   if (koreanRestaurant.contains(restaurant)) {
@@ -66,6 +54,30 @@ String findRestaurantType(String restaurant) {
     return '-';
   }
 }
+
+
+int giveRestaurantIndex(String restaurant){
+  int index = 0;
+  List<String> mergedList = [...koreanRestaurant,
+    ...chineseRestaurant,
+    ...japaneseRestaurant,
+    ...westernRestaurant,
+    ...asianRestaurant,
+    ...fastRestaurant,
+    ...snackRestaurant,
+    ...etcRestaurant,];
+
+  for (int i = 0; i < mergedList.length; i++) {
+    // 1부터 9까지의 인덱스를 순차적으로 부여하기 위해 (i % 9)을 사용
+    index = i % 9;
+
+    if (mergedList[i] == restaurant) {
+      break;
+    }
+  }
+  return index;
+}
+
 
 // 한식
 final List<String> koreanRestaurant = [

@@ -1,5 +1,5 @@
 import 'dart:math';
-import '../config/restaurants.dart';
+import '../models/restaurants.dart';
 
 String chooseRandomRestaurant() {
   List<String> mergedList = [...koreanRestaurant,

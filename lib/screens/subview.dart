@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hongmagip_android/config/restaurantTypes.dart';
-import 'package:hongmagip_android/config/restaurants.dart';
 import 'package:hongmagip_android/screens/view.dart';
-import 'package:hongmagip_android/config/palette.dart';
-import 'subview/detailview/detailPage.dart';
+import 'detail_view/detail_page.dart';
 
 class SubView extends StatefulWidget {
   final String type;
@@ -115,65 +112,3 @@ class _SubViewState extends State<SubView> {
     );
   }
 }
-
-
-// import 'package:flutter/material.dart';
-// import 'subview/detailview/detailPage.dart';
-//
-// class SubView extends StatelessWidget {
-//   final String type;
-//   final List<String> restaurantList;
-//   final Color containerColor; // 컨테이너 색상을 위한 Color 속성 추가
-//
-//   const SubView({
-//     Key? key,
-//     required this.type,
-//     required this.restaurantList,
-//     required this.containerColor,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: (MediaQuery.of(context).size.height) * 0.6,
-//       child: Padding(
-//         padding: const EdgeInsets.all(10.0),
-//         child: GridView.builder(
-//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//             crossAxisCount: 3,
-//             mainAxisSpacing: 6,
-//             crossAxisSpacing: 6,
-//           ),
-//           physics: NeverScrollableScrollPhysics(),
-//           itemCount: restaurantList.length,
-//           itemBuilder: (context, index) {
-//             return InkWell(
-//               onTap: () {
-//                 showDetailPage(context, restaurantList[index], type);
-//               },
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(20),
-//                   color: containerColor,
-//                 ),
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     Text(
-//                       restaurantList[index],
-//                       style: TextStyle(
-//                         color: Colors.white,
-//                         fontWeight: FontWeight.w700,
-//                         fontSize: 24,
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             );
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }

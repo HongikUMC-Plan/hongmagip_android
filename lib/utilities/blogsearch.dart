@@ -2,7 +2,6 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:html/parser.dart' as htmlParser;
-// import 'package:html/dom.dart' as dom;
 
 Future<List<Map<String, dynamic>>> getBlogSearchResults(String restaurant) async {
   final String clientId = "ZaYfmkYyJ4VyCw0P4BLT"; // 네이버 개발자 포털에서 발급받은 클라이언트 아이디

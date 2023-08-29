@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hongmagip_android/screens/subview/detailview/searchResult.dart';
+import 'package:hongmagip_android/screens/detail_view/search_result.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../config/maplinks.dart';
-import '../../../config/palette.dart';
+import '../../models/maplinks.dart';
+import '../../../colors/palette.dart';
+import '../../models/restaurants.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -21,9 +22,9 @@ class _DetailPageState extends State<DetailPage> {
 
 void showDetailPage(BuildContext context, String restaurant, String type) {
   matchKakaoLink(type);
-  List<String> kakaolinkList = matchKakaoLink(type);
-  List<String> naverlinkList = matchNaverLink(type);
-  int index = giverestaurantIndex(restaurant);
+  List<String> kakaoLinkList = matchKakaoLink(type);
+  List<String> naverLinkList = matchNaverLink(type);
+  int index = giveRestaurantIndex(restaurant);
 
   showModalBottomSheet(
     context: context,
@@ -79,7 +80,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                         onPressed: () {
                           launchUrl(
                             Uri.parse(
-                                kakaolinkList[index],
+                                kakaoLinkList[index],
                             ),
                           );
                         },
@@ -113,7 +114,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                         onPressed: () {
                           launchUrl(
                             Uri.parse(
-                              naverlinkList[index],
+                              naverLinkList[index],
                             ),
                           );
                         },
@@ -160,7 +161,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                   ),
                 ),
                 Expanded( // 상위 review 나열된 listview'
-                  child: SearchResultPage(searchKeyword: "홍대 $restaurant"),
+                  child: SearchResult(searchKeyword: "홍대 $restaurant"),
                 ),
               ],
             ),
