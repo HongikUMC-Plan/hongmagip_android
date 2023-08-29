@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hongmagip_android/config/palette.dart';
-import '../../config/restaurantTypes.dart';
-import '../../config/restaurants.dart';
-import '../view.dart';
-import 'detailview/detailPage.dart';
+import 'package:hongmagip_android/config/restaurantTypes.dart';
+import 'package:hongmagip_android/config/restaurants.dart';
+import 'package:hongmagip_android/screens/view.dart';
+import 'package:hongmagip_android/screens/subview.dart';
+
+import '../../config/palette.dart';
 
 class AsianList extends StatefulWidget {
   const AsianList({ Key? key }) : super(key: key);
@@ -12,10 +13,11 @@ class AsianList extends StatefulWidget {
   _AsianListState createState() => _AsianListState();
 }
 
-final String type = restaurantType[4];
-final restaurantList = asianRestaurant;
-
 class _AsianListState extends State<AsianList> {
+
+  final String type = restaurantType[4];
+  final List<String> restaurantList = asianRestaurant;
+  final Color containerColor = Palette.blue1;
 
   @override
   Widget build(BuildContext context) {
@@ -32,131 +34,12 @@ class _AsianListState extends State<AsianList> {
       body: Column(
         children: [
           SizedBox(
-              height: (MediaQuery.of(context).size.height) * 0.1,
-          ),
-          SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.1,
-            child: Text(type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
+          ),
           SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.6,
-            child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 6,crossAxisSpacing: 6),
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[0], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[0],style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[1], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[1],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[2], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[2],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[3], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[3],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[4], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[4],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[5], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[5],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[6], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[6],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[7], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[7],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],),
-                ),
-              ),
-              InkWell(
-                onTap: (){
-                  showDetailPage(context, restaurantList[8], type);
-                },
-                child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Palette.blue1,),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(restaurantList[8],style: TextStyle( color: Colors.white,fontWeight: FontWeight.w700,fontSize: 24),)
-                    ],
-                  ),
-                ),
-              ),
-            ],
-            ),
-          ),
-          ),
+              height: (MediaQuery.of(context).size.height) * 0.1,
+              child: Text(type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
+          SubView(type: type, restaurantList: restaurantList, containerColor: containerColor,), // 변경
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.1,
             child: Row(

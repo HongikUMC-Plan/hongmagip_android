@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:hongmagip_android/config/palette.dart';
 import 'package:hongmagip_android/config/restaurants.dart';
 import 'package:hongmagip_android/screens/random.dart';
+import 'package:hongmagip_android/screens/subview.dart';
 import 'package:hongmagip_android/screens/subview/detailview/detailPage.dart';
-import 'package:hongmagip_android/screens/subview/etcList.dart';
-import 'package:hongmagip_android/screens/subview/snackList.dart';
-import 'package:hongmagip_android/screens/subview/fastList.dart';
-import 'package:hongmagip_android/screens/subview/asianList.dart';
-import 'package:hongmagip_android/screens/subview/westernList.dart';
-import 'package:hongmagip_android/screens/subview/japaneseList.dart';
-import 'package:hongmagip_android/screens/subview/chineseList.dart';
-import 'package:hongmagip_android/screens/subview/koreanList.dart';
+// import 'package:hongmagip_android/screens/subview/etcList.dart';
+// import 'package:hongmagip_android/screens/subview/snackList.dart';
+// import 'package:hongmagip_android/screens/subview/fastList.dart';
+// import 'package:hongmagip_android/screens/subview/asianList.dart';
+// import 'package:hongmagip_android/screens/subview/westernList.dart';
+// import 'package:hongmagip_android/screens/subview/japaneseList.dart';
+// import 'package:hongmagip_android/screens/subview/chineseList.dart';
+// import 'package:hongmagip_android/screens/subview/koreanList.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../config/restaurantTypes.dart';
 
 
 class ViewScreen extends StatefulWidget {
@@ -22,17 +25,63 @@ class ViewScreen extends StatefulWidget {
 }
 
 // 카테고리 목록
+// final List<CategoryInfo> categories = [
+//   CategoryInfo('일식', Palette.blue3, JapaneseList()),
+//   CategoryInfo('양식', Palette.blue3, WesternList()),
+//   CategoryInfo('로고', Palette.blue3, WesternList()),
+//   CategoryInfo('아시안', Palette.blue1, AsianList()),
+//   CategoryInfo('패푸', Palette.blue2, FastList()),
+//   CategoryInfo('분식', Palette.blue1, SnackList()),
+//   CategoryInfo('기타', Palette.blue3, EtcList()),
+// ];
 final List<CategoryInfo> categories = [
-  CategoryInfo('한식', Palette.blue1, KoreanList()),
-  CategoryInfo('중식', Palette.blue2, ChineseList()),
-  CategoryInfo('일식', Palette.blue3, JapaneseList()),
-  CategoryInfo('양식', Palette.blue3, WesternList()),
-  CategoryInfo('로고', Palette.blue3, WesternList()),
-  CategoryInfo('아시안', Palette.blue1, AsianList()),
-  CategoryInfo('패푸', Palette.blue2, FastList()),
-  CategoryInfo('분식', Palette.blue1, SnackList()),
-  CategoryInfo('기타', Palette.blue3, EtcList()),
+  CategoryInfo('한식', Palette.blue1, SubView(
+    type: restaurantType[0],
+    restaurantList: koreanRestaurant,
+    containerColor: Palette.blue1,
+  )),
+  CategoryInfo('중식', Palette.blue2, SubView(
+    type: restaurantType[1],
+    restaurantList: chineseRestaurant,
+    containerColor: Palette.blue2,
+  )),
+  CategoryInfo('일식', Palette.blue3, SubView(
+    type: restaurantType[2],
+    restaurantList: japaneseRestaurant,
+    containerColor: Palette.blue3,
+  )),
+  CategoryInfo('양식', Palette.blue3, SubView(
+    type: restaurantType[3],
+    restaurantList: westernRestaurant,
+    containerColor: Palette.blue3,
+  )),
+  CategoryInfo('로고', Palette.blue3, SubView(
+    type: restaurantType[3],
+    restaurantList: westernRestaurant,
+    containerColor: Palette.blue3,
+  )),
+  CategoryInfo('아시안', Palette.blue1, SubView(
+    type: restaurantType[4],
+    restaurantList: asianRestaurant,
+    containerColor: Palette.blue1,
+  )),
+  CategoryInfo('패푸', Palette.blue2, SubView(
+    type: restaurantType[5],
+    restaurantList: asianRestaurant,
+    containerColor: Palette.blue2,
+  )),
+  CategoryInfo('분식', Palette.blue1, SubView(
+    type: restaurantType[6],
+    restaurantList: asianRestaurant,
+    containerColor: Palette.blue1,
+  )),
+  CategoryInfo('기타', Palette.blue3, SubView(
+    type: restaurantType[7],
+    restaurantList: westernRestaurant,
+    containerColor: Palette.blue3,
+  )),
 ];
+
 
 // 각 카테고리 정보를 담는 클래스
 class CategoryInfo {
@@ -189,12 +238,10 @@ class _ViewScreenState extends State<ViewScreen> {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      child: Image.asset(
-                                        'assets/image/dice.gif',
-                                        width: 150,
-                                        height: 150,
-                                      ),
+                                    Image.asset(
+                                      'assets/image/dice.gif',
+                                      width: 150,
+                                      height: 150,
                                     ),
                                     Padding(
                                       padding: EdgeInsets.only(top: 32),
