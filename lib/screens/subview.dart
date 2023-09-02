@@ -55,10 +55,11 @@ class _SubViewState extends State<SubView> {
                 itemCount: widget.restaurantList.length,
                 itemBuilder: (context, index) {
                   return InkWell(
+                    borderRadius: BorderRadius.circular(20),
                     onTap: () {
                       showDetailPage(context, widget.restaurantList[index], widget.type);
                     },
-                    child: Container(
+                    child: Ink(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: widget.containerColor,
@@ -68,10 +69,12 @@ class _SubViewState extends State<SubView> {
                         children: [
                           Text(
                             widget.restaurantList[index],
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
-                              fontSize: 24,
+                              fontSize: 20,
+                              letterSpacing: -1,
                             ),
                           ),
                         ],

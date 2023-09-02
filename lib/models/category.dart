@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hongmagip_android/colors/palette.dart';
 import 'package:hongmagip_android/models/restaurants.dart';
 
+import '../screens/detail_view/detail_page.dart';
 import '../screens/subview.dart';
+import 'info.dart';
 
 final List<CategoryInfo> categories = [
   CategoryInfo('한식', Palette.blue1, SubView(
@@ -25,10 +27,8 @@ final List<CategoryInfo> categories = [
     restaurantList: westernRestaurant,
     containerColor: Palette.blue3,
   )),
-  CategoryInfo('로고', Palette.blue3, SubView(
-    type: restaurantType[3],
-    restaurantList: westernRestaurant,
-    containerColor: Palette.blue3,
+  CategoryInfo('로고', Colors.white, InfoPage(
+    // info 페이지로 연결
   )),
   CategoryInfo('아시안', Palette.blue1, SubView(
     type: restaurantType[4],

@@ -4,7 +4,9 @@ import 'package:hongmagip_android/utilities/random.dart';
 import 'package:hongmagip_android/screens/detail_view/detail_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../colors/palette.dart';
 import '../models/category.dart';
+import '../models/info.dart';
 
 class ViewScreen extends StatefulWidget {
   ViewScreen({Key? key}) : super(key: key);
@@ -13,12 +15,13 @@ class ViewScreen extends StatefulWidget {
   State<ViewScreen> createState() => _ViewScreenState();
 }
 
-
 class _ViewScreenState extends State<ViewScreen> {
   bool isViewScreen = true;
   String randomRestaurant = '';
   String type = '';
   late StateSetter stateSetter;
+
+  get restaurantList => null;
 
   void updateRandomRestaurant(){
     setState(() {
@@ -65,10 +68,15 @@ class _ViewScreenState extends State<ViewScreen> {
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   return InkWell(
+                    borderRadius: BorderRadius.circular(20),
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => categories[index].route));
+                      if (index == 4) {
+                        showInfoPage(context);
+                      } else {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => categories[index].route));
+                      }
                     },
-                    child: Container(
+                    child: Ink(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: categories[index].color,
@@ -77,7 +85,9 @@ class _ViewScreenState extends State<ViewScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           index == 4 // 로고 아이콘
-                              ? Image(image: AssetImage('assets/image/로고.png'))
+                              ? Expanded(child: Image(
+                              image: AssetImage('assets/image/logo_non.png'))
+                              )
                               : Text(
                             categories[index].name,
                             style: TextStyle(
@@ -107,17 +117,16 @@ class _ViewScreenState extends State<ViewScreen> {
                       onTap: (){
                         resetRandomRestaurant();
                         showModalBottomSheet(
+                          backgroundColor: Palette.sheetColor,
                           context: context,
                           isScrollControlled: true,
                           builder: (BuildContext context) {
                             return SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.9,
+                              height: MediaQuery.of(context).size.height * 0.95,
                               child: Center(
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget> [
-                                    SizedBox(
-                                      height: 100,
-                                    ),
                                     Text(
                                       '랜덤선택',
                                       style: TextStyle(
@@ -148,7 +157,8 @@ class _ViewScreenState extends State<ViewScreen> {
                                                           fontFamily: 'Pretendard',
                                                           fontWeight: FontWeight.w500,
                                                           fontSize: 24,
-                                                          letterSpacing: -2
+                                                          letterSpacing: -2,
+                                                          color: Palette.defaultColor,
                                                         ),
                                                       );
                                                     }
@@ -169,15 +179,23 @@ class _ViewScreenState extends State<ViewScreen> {
                                       padding: EdgeInsets.only(top: 32),
                                       child: ElevatedButton(
                                         onPressed: updateRandomRestaurant,
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white, // 배경색을 하얀색으로 설정
+                                        ),
                                         child: Text(
                                           '랜덤 돌리기',
                                           style: TextStyle(
                                               fontFamily: 'Pretendard',
                                               fontWeight: FontWeight.w400,
                                               fontSize: 16,
-                                              letterSpacing: -1.5),
+                                              letterSpacing: -1.5,
+                                              color: Palette.defaultColor,
+                                          ),
                                         ),
                                       ),
+                                    ),
+                                    SizedBox(
+                                      height: 40,
                                     ),
                                   ],
                                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hongmagip_android/screens/detail_view/naver_map.dart';
 import 'package:hongmagip_android/screens/detail_view/search_result.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -29,7 +30,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: Palette.sheetColor,
     builder: (BuildContext context) {
       return SizedBox(
         height: MediaQuery.of(context).size.height * 0.95,
@@ -72,7 +73,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                 ),
                 Padding(
                   // kakao, naver 지도 button row
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 22),
+                  padding: EdgeInsets.zero,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -144,12 +145,26 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                     ],
                   ),
                 ),
-                Container( // Best Review 상단 실선
-                  height:1.0,
-                  color:Colors.grey,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  child: Container( // Best Review 상단 실선
+                    height: 1.0,
+                    color:Palette.lineColor,
+                  ),
+                ),
+                Container( // 네이버 지도 위젯 container
+                  height:130.0,
+                  child: NaverMapWidget(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 28),
+                  child: Container( // Best Review 상단 실선
+                    height: 1.0,
+                    color:Palette.lineColor,
+                  ),
                 ),
                 Padding( // Best Review text
-                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 14),
+                  padding: EdgeInsets.zero,
                   child: Text(
                     'Best Review',
                     style: TextStyle(
