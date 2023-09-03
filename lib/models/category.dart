@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hongmagip_android/colors/palette.dart';
 import 'package:hongmagip_android/models/restaurants.dart';
 
-import '../screens/detail_view/detail_page.dart';
 import '../screens/subview.dart';
 import 'info.dart';
 
@@ -35,19 +34,19 @@ final List<CategoryInfo> categories = [
     restaurantList: asianRestaurant,
     containerColor: Palette.blue1,
   )),
-  CategoryInfo('패푸', Palette.blue2, SubView(
+  CategoryInfo('패•푸', Palette.blue2, SubView(
     type: restaurantType[5],
-    restaurantList: asianRestaurant,
+    restaurantList: fastRestaurant,
     containerColor: Palette.blue2,
   )),
   CategoryInfo('분식', Palette.blue1, SubView(
     type: restaurantType[6],
-    restaurantList: asianRestaurant,
+    restaurantList: snackRestaurant,
     containerColor: Palette.blue1,
   )),
   CategoryInfo('기타', Palette.blue3, SubView(
     type: restaurantType[7],
-    restaurantList: westernRestaurant,
+    restaurantList: etcRestaurant,
     containerColor: Palette.blue3,
   )),
 ];

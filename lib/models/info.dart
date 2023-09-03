@@ -111,7 +111,7 @@ void showInfoPage(BuildContext context) {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(3, 2, 0, 0),
                         child: Text(
-                          'Github',
+                          'GitHub',
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'Pretendard',

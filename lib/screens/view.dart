@@ -41,14 +41,6 @@ class _ViewScreenState extends State<ViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
-        child: AppBar(
-          title: Text(''),
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-        ),
-      ),
       body: Column(
         children: [
           SizedBox(
@@ -73,7 +65,8 @@ class _ViewScreenState extends State<ViewScreen> {
                       if (index == 4) {
                         showInfoPage(context);
                       } else {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => categories[index].route));
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => categories[index].route));
                       }
                     },
                     child: Ink(

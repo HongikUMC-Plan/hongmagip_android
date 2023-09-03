@@ -4,7 +4,7 @@ final List<String> restaurantType = [
   '일식',
   '양식',
   '아시안',
-  '패푸',
+  '패•푸',
   '분식',
   '기타',
 ];
@@ -45,7 +45,7 @@ String findRestaurantType(String restaurant) {
   } else if (asianRestaurant.contains(restaurant)) {
     return '아시안';
   } else if (fastRestaurant.contains(restaurant)) {
-    return '패푸';
+    return '패-푸';
   } else if (snackRestaurant.contains(restaurant)) {
     return '분식';
   } else if (etcRestaurant.contains(restaurant)) {
@@ -97,7 +97,7 @@ final List<String> chineseRestaurant = [
   '명장',
   '향차이',
   '환시앙',
-  '손오공마라탕 서교점',
+  '손오공마라탕',
   '타오마라탕',
   '짬뽕지존',
   '샤오바오',
@@ -130,7 +130,7 @@ final List<String> westernRestaurant = [
 // 아시안
 final List<String> asianRestaurant = [
   '포보',
-  '탄탄면공방',
+  '알촌',
   '미분당',
   '더 키친 아시아 인도',
   '델리인디아',
@@ -145,9 +145,9 @@ final List<String> fastRestaurant = [
   '식스티즈',
   '써브웨이',
   '테이스티버거',
-  '대한수제버거',
+  '샌드프레소',
   '맘스터치',
-  '북문당',
+  '버거킹',
   '더 피자 보이즈',
   '에그드랍'
 ];
@@ -159,9 +159,9 @@ final List<String> snackRestaurant = [
   '봉봉',
   '그동네떡볶이',
   '김가네',
-  '오늘타코',
+  '봉구가래떡볶이',
   '지지고',
-  '무궁화타운'
+  '홍분식'
 ];
 // 기타
 final List<String> etcRestaurant = [
@@ -173,5 +173,5 @@ final List<String> etcRestaurant = [
   '상수 냉장고',
   '무쇠김치삼겹',
   '넙딱집',
-  '등촌'
+  '등촌샤브칼국수'
 ];

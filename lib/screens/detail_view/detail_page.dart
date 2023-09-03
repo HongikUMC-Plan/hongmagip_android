@@ -152,9 +152,9 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                     color:Palette.lineColor,
                   ),
                 ),
-                Container( // 네이버 지도 위젯 container
+                SizedBox( // 네이버 지도 위젯 container
                   height:130.0,
-                  child: NaverMapWidget(),
+                  child: NaverMapWidget(restaurant: restaurant, type: type, index: index),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 28),
@@ -176,7 +176,7 @@ void showDetailPage(BuildContext context, String restaurant, String type) {
                   ),
                 ),
                 Expanded( // 상위 review 나열된 listview'
-                  child: SearchResult(searchKeyword: "홍대 $restaurant"),
+                  child: SearchResult(searchKeyword: "홍대 $restaurant $type"),
                 ),
               ],
             ),

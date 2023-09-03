@@ -1,64 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 
+import '../../models/latlng.dart';
+
 class NaverMapWidget extends StatelessWidget {
+  final String restaurant;
+  final String type;
+  final int index; // 추가된 index 필드
+  // final NLatLng latLng = NLatLng(37.54915210095082, 126.92202163309558);
+
+
+  NaverMapWidget({super.key,
+    required this.restaurant, required this.type, required this.index});
+
   @override
   Widget build(BuildContext context) {
+    final List<NLatLng> latLngList = matchRestaurantLatLng(type);
+    final NLatLng latLng = latLngList.length > index ? latLngList[index] : NLatLng(0, 0);
+
+    final cameraPosition = NCameraPosition(
+      target: latLng,
+      zoom: 15,
+    );
+
     return NaverMap(
-      options: const NaverMapViewOptions(
+      options: NaverMapViewOptions(
         indoorEnable: true,
         locationButtonEnable: false,
         consumeSymbolTapEvents: false,
+        rotationGesturesEnable: false,
         scrollGesturesEnable: true,
+        zoomGesturesEnable: true,
+        stopGesturesEnable: true,
+        logoClickEnable: false,
+        scaleBarEnable: false,
+        initialCameraPosition: cameraPosition,
       ),
       onMapReady: (controller) async {
         // 필요한 초기화 작업 수행
+        final iconImage = await NOverlayImage.fromWidget(
+            widget: Image.asset('assets/image/logo_non.png'),
+            size: const Size(16, 16),
+            context: context);
         final marker = NMarker(
-            id: '',
-            position:
-                const NLatLng(37.566858, 126.978221)
+          id: restaurant,
+          position: latLng,
+          icon: iconImage,
         );
         controller.addOverlay(marker);
-      },
+        final onMarkerInfoWindow = NInfoWindow.onMarker(
+            id: marker.info.id, text: restaurant);
+        marker.openInfoWindow(onMarkerInfoWindow);
+        marker.size;
+        },
     );
   }
 }
-
-
-// import 'dart:async';
-//
-// import 'package:flutter/material.dart';
-// import 'package:flutter_naver_map/flutter_naver_map.dart';
-//
-// // void main() async {
-// //   await _initialize();
-// //   runApp(const NaverMapApp());
-// // }
-//
-// // 지도 초기화하기
-// Future<void> _initialize() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await NaverMapSdk.instance.initialize(
-//       clientId: 'ji0fne2vj4',     // 클라이언트 ID 설정
-//   );
-// }
-//
-// // class NaverMapApp extends StatelessWidget {
-// //   const NaverMapApp({Key? key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     // NaverMapController 객체의 비동기 작업 완료를 나타내는 Completer 생성
-//     final Completer<NaverMapController> mapControllerCompleter = Completer();
-//
-//     return NaverMap(
-//       options: const NaverMapViewOptions(
-//         indoorEnable: true,             // 실내 맵 사용 가능 여부 설정
-//         locationButtonEnable: false,    // 위치 버튼 표시 여부 설정
-//         consumeSymbolTapEvents: false,  // 심볼 탭 이벤트 소비 여부 설정
-//       ),
-//       onMapReady: (controller) async {                // 지도 준비 완료 시 호출되는 콜백 함수
-//         mapControllerCompleter.complete(controller);  // Completer에 지도 컨트롤러 완료 신호 전송
-//       },
-//     );
-//   }

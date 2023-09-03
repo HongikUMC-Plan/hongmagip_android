@@ -15,7 +15,7 @@ List<String> matchKakaoLink(String type){
     case '분식':
       return kakaoSnackList;
     case '기타':
-      return kakaoAsianList;
+      return kakaoEtcList;
     default:
       return [];
   }
@@ -95,7 +95,7 @@ final List<String> kakaoWesternList = [
 
 final List<String> kakaoAsianList = [
   'https://place.map.kakao.com/19032335',
-  'https://place.map.kakao.com/969025722',
+  'https://place.map.kakao.com/1289781956',
   'https://place.map.kakao.com/1551661200',
   'https://place.map.kakao.com/228801586',
   'https://place.map.kakao.com/27416360',
@@ -110,7 +110,7 @@ final List<String> kakaoFastList = [
   'https://place.map.kakao.com/488474938',
   'https://place.map.kakao.com/285790744',
   'https://place.map.kakao.com/1737612851',
-  'https://place.map.kakao.com/358894731',
+  'https://place.map.kakao.com/1693089943',
   'https://place.map.kakao.com/27469228',
   'https://place.map.kakao.com/723372106',
   'https://place.map.kakao.com/27548461',
@@ -124,9 +124,9 @@ final List<String> kakaoSnackList = [
   'https://place.map.kakao.com/824668308',
   'https://place.map.kakao.com/25859396',
   'https://place.map.kakao.com/26932953',
-  'https://place.map.kakao.com/2011916768',
+  'https://place.map.kakao.com/965233002',
   'https://place.map.kakao.com/20125512',
-  'https://place.map.kakao.com/2028048009'
+  'https://place.map.kakao.com/1735205837'
 ];
 
 final List<String> kakaoEtcList = [
@@ -192,7 +192,7 @@ final List <String> naverWesternList = [
 
 final List <String> naverAsianList = [
   'https://m.place.naver.com/restaurant/31093198',
-  'https://m.place.naver.com/restaurant/37450208',
+  'https://m.place.naver.com/restaurant/1979790113',
   'https://m.place.naver.com/restaurant/70086019',
   'https://m.place.naver.com/restaurant/1363039498',
   'https://m.place.naver.com/restaurant/37420517',
@@ -207,9 +207,9 @@ final List <String> naverFastList = [
   'https://m.place.naver.com/restaurant/1853322194',
   'https://m.place.naver.com/restaurant/38705494',
   'https://m.place.naver.com/restaurant/1935683021',
-  'https://m.place.naver.com/restaurant/1413052443',
+  'https://m.place.naver.com/restaurant/1068055738',
   'https://m.place.naver.com/restaurant/37572950',
-  'https://m.place.naver.com/restaurant/1134739376',
+  'https://m.place.naver.com/restaurant/753331433',
   'https://m.place.naver.com/restaurant/37624477',
   'https://m.place.naver.com/restaurant/1448176164'
 ];
@@ -221,9 +221,9 @@ final List <String> naverSnackList = [
   'https://m.place.naver.com/restaurant/1363994074',
   'https://m.place.naver.com/restaurant/32481151',
   'https://m.place.naver.com/restaurant/36680775',
-  'https://m.place.naver.com/restaurant/1504309232',
+  'https://m.place.naver.com/restaurant/1734153618',
   'https://m.place.naver.com/restaurant/32812047',
-  'https://m.place.naver.com/restaurant/1847343692'
+  'https://m.place.naver.com/restaurant/1817514533'
 ];
 
 final List <String> naverEtcList = [
