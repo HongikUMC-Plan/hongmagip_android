@@ -42,9 +42,10 @@ class _ViewScreenState extends State<ViewScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.2,
+            height: (MediaQuery.of(context).size.height) * 0.1,
           ),
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.6,
@@ -97,133 +98,132 @@ class _ViewScreenState extends State<ViewScreen> {
               ),
             ),
           ),
-          SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.1,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Spacer(flex: 2,),
-                    InkWell(
-                      onTap: (){
-                        resetRandomRestaurant();
-                        showModalBottomSheet(
-                          backgroundColor: Palette.sheetColor,
-                          context: context,
-                          isScrollControlled: true,
-                          builder: (BuildContext context) {
-                            return SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.95,
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget> [
-                                    Text(
-                                      '랜덤선택',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontFamily: 'Pretendard',
-                                          fontWeight: FontWeight.w800,
-                                          fontSize: 32,
-                                          letterSpacing: -2),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                                      child: SizedBox(
-                                        height: 100,
-                                        child: InkWell(
-                                          child: SizedBox(
-                                            child: StatefulBuilder(
-                                              builder: (BuildContext context, StateSetter setState) {
-                                                return TextButton(
-                                                  onPressed: (){
-                                                    showDetailPage(context, randomRestaurant, type);
-                                                  },
-                                                  child: StatefulBuilder(
-                                                    builder: (BuildContext context, StateSetter setState){
-                                                      stateSetter = setState;
-                                                      return Text(
-                                                        randomRestaurant,
-                                                        style: TextStyle(
-                                                          fontFamily: 'Pretendard',
-                                                          fontWeight: FontWeight.w500,
-                                                          fontSize: 24,
-                                                          letterSpacing: -2,
-                                                          color: Palette.defaultColor,
-                                                        ),
-                                                      );
-                                                    }
-                                                  ),
-                                                );
-                                              }
-                                            ),
+          Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: SizedBox(
+              height: (MediaQuery.of(context).size.height) * 0.1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Spacer(flex: 2,),
+                  InkWell(
+                    onTap: (){
+                      resetRandomRestaurant();
+                      showModalBottomSheet(
+                        backgroundColor: Palette.sheetColor,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.95,
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget> [
+                                  Text(
+                                    '랜덤선택',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 32,
+                                        letterSpacing: -2),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                                    child: SizedBox(
+                                      height: 100,
+                                      child: InkWell(
+                                        child: SizedBox(
+                                          child: StatefulBuilder(
+                                            builder: (BuildContext context, StateSetter setState) {
+                                              return TextButton(
+                                                onPressed: (){
+                                                  showDetailPage(context, randomRestaurant, type);
+                                                },
+                                                child: StatefulBuilder(
+                                                  builder: (BuildContext context, StateSetter setState){
+                                                    stateSetter = setState;
+                                                    return Text(
+                                                      randomRestaurant,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Pretendard',
+                                                        fontWeight: FontWeight.w500,
+                                                        fontSize: 24,
+                                                        letterSpacing: -2,
+                                                        color: Palette.defaultColor,
+                                                      ),
+                                                    );
+                                                  }
+                                                ),
+                                              );
+                                            }
                                           ),
                                         ),
                                       ),
                                     ),
-                                    Image.asset(
-                                      'assets/image/dice.gif',
-                                      width: 150,
-                                      height: 150,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 32),
-                                      child: ElevatedButton(
-                                        onPressed: updateRandomRestaurant,
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.white, // 배경색을 하얀색으로 설정
-                                        ),
-                                        child: Text(
-                                          '랜덤 돌리기',
-                                          style: TextStyle(
-                                              fontFamily: 'Pretendard',
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 16,
-                                              letterSpacing: -1.5,
-                                              color: Palette.defaultColor,
-                                          ),
+                                  ),
+                                  Image.asset(
+                                    'assets/image/dice.gif',
+                                    width: 150,
+                                    height: 150,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 32),
+                                    child: ElevatedButton(
+                                      onPressed: updateRandomRestaurant,
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.white, // 배경색을 하얀색으로 설정
+                                      ),
+                                      child: Text(
+                                        '랜덤 돌리기',
+                                        style: TextStyle(
+                                            fontFamily: 'Pretendard',
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 16,
+                                            letterSpacing: -1.5,
+                                            color: Palette.defaultColor,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                ],
                               ),
-                            );
-                          },
-                        );
-                      },
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.asset(
-                        'assets/image/랜덤.png',
-                        width: 50,
-                        height: 50,
-                      ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      'assets/image/랜덤.png',
+                      width: 50,
+                      height: 50,
                     ),
-                    Spacer(flex: 1,),
-                    InkWell(
-                      onTap: (){
-                        launchUrl(
-                          Uri.parse(
-                              'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
-                          ),
-                        ); // instagram url
-                      },
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.asset(
-                        'assets/image/인스타그램.png',
-                        width: 50,
-                        height: 50,
-                      ),
+                  ),
+                  Spacer(flex: 1,),
+                  InkWell(
+                    onTap: (){
+                      launchUrl(
+                        Uri.parse(
+                            'https://instagram.com/hongik_mumukji?igshid=OGQ5ZDc2ODk2ZA=='
+                        ),
+                      ); // instagram url
+                    },
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      'assets/image/인스타그램.png',
+                      width: 50,
+                      height: 50,
                     ),
-                    Spacer(flex: 2,),
-                  ],
-                ),
-              ],
+                  ),
+                  Spacer(flex: 2,),
+                ],
+              ),
             ),
           ),
         ],

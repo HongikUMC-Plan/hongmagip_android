@@ -33,14 +33,18 @@ class _SubViewState extends State<SubView> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-              height: (MediaQuery.of(context).size.height) * 0.1,
+              height: (MediaQuery.of(context).size.height) * 0.03,
               child: Container()
           ),
           SizedBox(
               height: (MediaQuery.of(context).size.height) * 0.1,
-              child: Text(widget.type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),)),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text(widget.type, style: TextStyle(color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),),
+              )),
           SizedBox(
             height: (MediaQuery.of(context).size.height) * 0.6,
             child: Padding(
@@ -85,29 +89,32 @@ class _SubViewState extends State<SubView> {
               ),
             ),
           ),
-          SizedBox(
-            height: (MediaQuery.of(context).size.height) * 0.1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Spacer(flex: 1,),
-                InkWell(
-                  onTap: (){
-                    Navigator.pop(
-                      context, MaterialPageRoute(
-                        builder: (context) => ViewScreen()),
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(50),
-                  child: Image.asset(
-                    'assets/image/뒤로가기.png',
-                    width: 50,
-                    height: 50,
+          Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: SizedBox(
+              height: (MediaQuery.of(context).size.height) * 0.1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Spacer(flex: 1,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.pop(
+                        context, MaterialPageRoute(
+                          builder: (context) => ViewScreen()),
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      'assets/image/뒤로가기.png',
+                      width: 50,
+                      height: 50,
+                    ),
                   ),
-                ),
-                Spacer(flex: 1,),
-              ],
+                  Spacer(flex: 1,),
+                ],
+              ),
             ),
           ),
         ],
